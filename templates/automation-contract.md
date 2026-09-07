@@ -1,0 +1,23 @@
+# Automation contract
+
+- Intended user and recurring job:
+- Trigger: manual / proposed schedule / explicitly enabled schedule
+- If scheduled: exact timing, timezone, runtime host and authorisation:
+- Input source and schema:
+- Synthetic example:
+- Output location and format:
+- Read-only input boundaries:
+- Validation rules:
+- Missing/invalid records:
+- Duplicate and conflicting-ID handling:
+- Dry-run behavior:
+- Repeated-run behavior:
+- Network timeout/rate-limit behavior, if applicable:
+- Failure or partial-result signal:
+- External writes/messages (default: none):
+- Credentials needed (names only, never values):
+- How to stop/disable:
+- What happens when the computer is off:
+- Successful run evidence:
+- Second-run evidence:
+- Failure-case evidence:

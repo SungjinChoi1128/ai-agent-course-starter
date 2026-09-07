@@ -1,0 +1,23 @@
+# Local learner output and fetched skill content
+workspace/projects/*
+workspace/notes/*
+workspace/setup-report.md
+workspace/skill-provenance.md
+.agents/skills/
+.claude/skills/
+.omx/
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials.json
+secrets.*
+# Generated dependencies and platform files
+node_modules/
+.venv/
+dist/
+build/
+.DS_Store
+Thumbs.db

@@ -1,0 +1,24 @@
+{
+  "status": 200,
+  "headers": {
+    "content-type": "application/json"
+  },
+  "body": {
+    "actions": [
+      {
+        "id": "A1",
+        "title": "Book room",
+        "owner": "Alex",
+        "due": "2026-09-10",
+        "completed": false
+      },
+      {
+        "id": "A2",
+        "title": "Draft welcome message",
+        "owner": "Sam",
+        "due": "2026-09-11",
+        "completed": false
+      }
+    ]
+  }
+}

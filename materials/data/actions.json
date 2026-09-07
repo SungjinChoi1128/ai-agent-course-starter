@@ -1,0 +1,30 @@
+[
+  {
+    "id": "A1",
+    "title": "Book room",
+    "owner": "Alex",
+    "due": "2026-09-10",
+    "completed": false
+  },
+  {
+    "id": "A2",
+    "title": "Draft welcome message",
+    "owner": "Sam",
+    "due": "2026-09-11",
+    "completed": false
+  },
+  {
+    "id": "A3",
+    "title": "Print signup sheet",
+    "owner": "Alex",
+    "due": "2026-09-12",
+    "completed": false
+  },
+  {
+    "id": "A4",
+    "title": "Check projector",
+    "owner": "Jo",
+    "due": "2026-09-08",
+    "completed": true
+  }
+]

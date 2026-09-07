@@ -1,0 +1,37 @@
+[
+  {
+    "id": "A1",
+    "title": "Book room",
+    "owner": "Alex",
+    "due": "2026-09-10",
+    "completed": false
+  },
+  {
+    "id": "A1",
+    "title": "Book room",
+    "owner": "Alex",
+    "due": "2026-09-10",
+    "completed": false
+  },
+  {
+    "id": "A5",
+    "title": "Arrange snacks",
+    "owner": null,
+    "due": "2026-09-12",
+    "completed": false
+  },
+  {
+    "id": "A6",
+    "title": "Check date",
+    "owner": "Sam",
+    "due": "2026-02-30",
+    "completed": false
+  },
+  {
+    "id": "A7",
+    "title": "   ",
+    "owner": "Jo",
+    "due": "2026-09-12",
+    "completed": "false"
+  }
+]
