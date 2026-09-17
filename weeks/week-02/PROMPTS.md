@@ -1,27 +1,44 @@
 # Week 2 copy-paste prompts
 
-Paste these into agent chat, not the terminal. Replace bracketed values with your actual project paths and decisions. Use one prompt at a time. Codex and Claude Code can use the same plain-language prompts; [Setup](../../SETUP.md#codex-and-claude-code) covers skill invocation differences.
+Paste these into **agent chat**, not the terminal. Use **one prompt at a time**. Codex is primary; Claude Code can use the same plain-language prompts with its own MCP connect UI.
 
-## Find relevant context
+**No Gmail. No secrets. Local Sticky Notes only.**
+
+## 1 — Brief
 
 ```text
-I want to add [ONE FEATURE] to [PROJECT PATH]. Inspect the existing brief and relevant files. Identify up to three sources that would change your implementation decisions. Explain why each matters. Do not edit yet. Do not inspect unrelated private folders.
+I am not a developer. Help me design a tiny local MCP server called "sticky-notes".
+Tools: list_notes, add_note(text), search_notes(query).
+Store notes in notes.json in this project. No accounts, no cloud APIs.
+Explain each file you will create in one plain sentence before writing code.
+Stop after the plan; wait for my yes.
 ```
 
-## Clarify the brief
+## 2 — Build
 
 ```text
-Help me complete templates/project-brief.md for [IDEA]. Use the current project as evidence. Ask only about decisions you cannot resolve from the files. Include constraints, non-goals and three checks a non-developer can perform. Mark assumptions and show the draft before implementation.
+Build the sticky-notes MCP from the approved plan.
+Include clear run/connect instructions for Codex on my machine.
+After building, tell me exactly what to click/type to connect it, then stop.
 ```
 
-## Implement with boundaries
+## 3 — Prove
 
 ```text
-Implement the approved change described in [BRIEF PATH]. Context: [RELEVANT FILES]. Goal: [USER OUTCOME]. Constraints: [LIMITS]. Non-goals: [EXCLUSIONS]. Success checks: [THREE CHECKS]. Preserve existing behavior outside this change. Show how I can verify the result.
+Call add_note with "buy oat milk", then list_notes, then search_notes for "milk".
+Show me the tool results and the path to notes.json. Do not claim success without those.
 ```
 
-## Check prompt quality
+## 4 — Break/fix (after a tool was renamed or notes.json was emptied/removed)
 
 ```text
-Read this request and point out up to three ambiguities that could produce different results: [REQUEST]. Give a concrete example of each. Do not rewrite my intention without asking; propose clearer wording for my review.
+Expected: list_notes returns my notes. Actual: [paste error or empty result].
+Find the smallest fix. Do not rebuild from scratch. Then re-run list_notes.
+```
+
+## Optional — Stretch tool
+
+```text
+Add one more tool: count_notes (returns how many notes exist) OR delete_note(query_or_id).
+Keep storage in notes.json. Explain the change in one sentence, then implement and show me how to test it.
 ```

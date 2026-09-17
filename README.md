@@ -1,18 +1,18 @@
 # AI Coding-Agent Course Starter
 
-Eight practical, 90-minute sessions for three non-developers: two using Codex and one using Claude Code. No programming background required.
+Eight practical, 90-minute sessions for four non-technical professionals. **Codex is primary.** No programming background required.
 
-**Course promise:** turn a real, small problem into something useful, inspect what the agent did, and improve it with evidence.
+**Course promise:** turn a real, small problem into something useful — with skills, MCP tools, inspection, and a safe handover.
 
-> Vague idea → interview → build → inspect → improve
+> Vague idea → interview → build → connect tools (MCP) → inspect → improve → hand over
 
 ## Start here
 
-**Teaching today? Open [Start today's lesson](FIRST_LESSON.md).**
+**Teaching today? Open [Start today's lesson](FIRST_LESSON.md).** After Week 1, open the **current week** (Week 2 = Sticky Notes MCP end-to-end).
 
 1. Instructor: read [Teaching Guide](TEACHING_GUIDE.md) and complete the setup rehearsal before class.
 2. Everyone: follow [Setup](SETUP.md). If Git is missing, start with the [bootstrap prompt](prompts/00-bootstrap.md) in your already-installed coding agent.
-3. Open [Week 1](weeks/week-01/README.md). Copy one prompt at a time and answer the interview yourself.
+3. Week 1 is historical completed content. For today's class, open [Week 2](weeks/week-02/README.md) (Sticky Notes MCP with Codex).
 4. Keep your work in `workspace/projects/` and your reflections in `workspace/notes/`. These are ignored by Git in this teaching repository.
 5. Come back next week with one thing that worked and one thing you could not yet verify.
 
@@ -20,16 +20,16 @@ Git is the local version-history tool. GitHub is the website for sharing reposit
 
 ## Eight weeks
 
-| Week | Practice | Leave with |
+| Week | Theme | Leave with |
 | --- | --- | --- |
-| [1](weeks/week-01/README.md) | Agents, skills, Deep Interview | A brief and a first working version |
-| [2](weeks/week-02/README.md) | Context, goals, constraints, success criteria | A clear, testable project brief |
-| [3](weeks/week-03/README.md) | Workspaces, files, terminal, repos, dependencies | A project you can locate and restart |
-| [4](weeks/week-04/README.md) | Build–inspect–improve | Two evidenced improvements |
-| [5](weeks/week-05/README.md) | Errors and hypotheses | A reproduced, explained, verified fix |
-| [6](weeks/week-06/README.md) | Data, APIs, automation | A repeatable, safe draft-report workflow |
-| [7](weeks/week-07/README.md) | Trust, diffs, tests, secrets, destructive actions | A release decision supported by evidence |
-| [8](weeks/week-08/README.md) | Capstone | A working demo and usable handover |
+| [1](weeks/week-01/README.md) (done) | Agents, skills, Deep Interview, GitHub | Brief + first build |
+| [2](weeks/week-02/README.md) (today) | MCP end-to-end — Sticky Notes | Working local MCP + proof it was called |
+| [3](weeks/week-03/README.md) | Ship a small app (interview → GitHub) | Personal utility from a brief, in GitHub |
+| [4](weeks/week-04/README.md) | Make it trustworthy | 3 manual checks + one verified fix |
+| [5](weeks/week-05/README.md) | Skill + MCP workflow | Skill gathers intent; MCP does the live action |
+| [6](weeks/week-06/README.md) | Real service, read-only, least access | One safe read-only connection |
+| [7](weeks/week-07/README.md) | Weekly job + stop switch | Repeatable run without duplicates |
+| [8](weeks/week-08/README.md) | Capstone demo + peer handover | Working demo others can run with author silent |
 
 See [Course Overview](COURSE_OVERVIEW.md) for progression and assessment.
 
@@ -37,11 +37,12 @@ See [Course Overview](COURSE_OVERVIEW.md) for progression and assessment.
 
 - `weeks/week-01/` … `weeks/week-08/`: agenda and outcomes in `README.md`, instructor scripts in `INSTRUCTOR.md`, exercises and homework in `EXERCISES.md`, copy-paste prompts in `PROMPTS.md`.
 - `prompts/`: bootstrap, interview compatibility instructions, and everyday reusable prompts.
-- `materials/`: synthetic meeting notes, data and API fixtures, demo brief, troubleshooting cards, safety cards, capstone ideas, and source notes.
+- `materials/`: synthetic notes, data fixtures, demo brief, troubleshooting and safety cards, capstone ideas, and source notes.
 - `templates/`: blank briefs, inspection logs, bug reports, automation contracts, and handovers.
 - `workspace/`: a local practice area, with guidance for creating separate project repositories.
+- `sessions/`: historical class records (do not delete).
 
-The running example is a meeting-action tracker. Students may choose a packing checklist or reading tracker with the same small scope.
+Week 1 used a meeting-action tracker as a running example. From Week 2 the focus is practical builds (Sticky Notes MCP first). Learners may still use fixtures in `materials/` as safe fake data. **No Gmail or secrets in Week 2.**
 
 ## Reuse or teach the course
 
@@ -53,7 +54,7 @@ git clone https://github.com/SungjinChoi1128/ai-agent-course-starter.git
 
 Run that command only after Git works. Open the resulting folder in your coding agent. A clone still points to this instructor repository; do not push student work there. The bootstrap explains how to keep work local or use a separately owned repository.
 
-Default workload: 90 minutes in class plus 20–30 minutes of homework. All required exercises use fake data and can remain local. No paid API, public deployment, or full OMO/OMX installation is required.
+Default workload: 90 minutes in class plus 20–30 minutes of homework. Required early weeks use local fake data. No paid API or full OMO/OMX installation is required. Week 6's real-service step stays read-only with least access.
 
 ## Deep Interview provenance
 

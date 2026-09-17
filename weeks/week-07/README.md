@@ -1,38 +1,36 @@
-# Week 7: Decide what to trust
+# Week 7: Automate a weekly job
 
-Verification, diffs, tests, secrets and destructive actions. 90 minutes, three learners.
+Repeatable run with a stop switch — no duplicate mess. 90 minutes, four learners.
 
 ## Expected outcomes
 
-- Read a change summary and identify a risky file or action.
-- Distinguish an agent claim, an automated test and a personally observed check.
-- Make a reasoned release decision with known limitations and appropriate permission boundaries.
+- Define a small weekly job (digest, cleanup list, reminder draft) with clear inputs and outputs.
+- Run it twice safely without creating duplicates.
+- Add an explicit stop switch (dry-run flag, “do not send”, or disable schedule).
 
 ## Before class
 
-Use a working project and its existing checks. Open materials/safety-cards.md and templates/release-checklist.md. Use fake secret placeholders only.
+Bring a working Week 5/6 piece (Sticky Notes, local report, or read-only digest). Open [templates/automation-contract.md](../../templates/automation-contract.md). Prefer local draft outputs — no auto-send email in class.
 
 ## 90-minute agenda
 
 | Time | Minutes | Activity | What learners do |
 | --- | --- | --- | --- |
-| 0–10 | 10 | Claim versus evidence | Compare 'all done' with a recorded check and its actual output. |
-| 10–25 | 15 | Read a diff | Inspect a real small change and name its effect and risk. |
-| 25–40 | 15 | Tests and gaps | Run existing checks and identify a behavior they do not cover. |
-| 40–55 | 15 | Safety scenarios | Discuss fake secrets, malicious input instructions and broad deletion requests. |
-| 55–75 | 20 | Audit your project | Inspect files, outputs, permissions and failure behavior before release. |
-| 75–85 | 10 | Peer decision | Give a go/no-go decision supported by evidence and known limitations. |
-| 85–90 | 5 | Exit | Name one action that needs explicit approval and one check still missing. |
+| 0–10 | 10 | Pick the job | Name reader, trigger, output, and “when it must not run” |
+| 10–25 | 15 | Contract | Fill automation contract: inputs, duplicates rule, stop switch |
+| 25–55 | 30 | Build | Codex implements dry-run first; local output only |
+| 55–70 | 15 | Run twice | Second run must not duplicate; record evidence |
+| 70–82 | 12 | Break stop | Flip stop switch / bad input; confirm it halts safely |
+| 82–90 | 8 | Share | Show two-run evidence + stop switch |
 
 ## Use this lesson
 
 1. Instructor: read [Instructor notes](INSTRUCTOR.md).
 2. Learners: open [Exercises and homework](EXERCISES.md).
 3. Copy one prompt at a time from [Prompts](PROMPTS.md).
-4. Keep evidence using the [templates](../../templates/README.md).
 
 ## Exit artifact
 
-A diff explanation, actual test/manual results, a safety-card response and a release decision with limitations.
+Automation contract, output from two clean runs, proof the stop switch works.
 
 [Course overview](../../COURSE_OVERVIEW.md) · [Setup](../../SETUP.md)

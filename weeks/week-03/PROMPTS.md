@@ -1,27 +1,27 @@
 # Week 3 copy-paste prompts
 
-Paste these into agent chat, not the terminal. Replace bracketed values with your actual project paths and decisions. Use one prompt at a time. Codex and Claude Code can use the same plain-language prompts; [Setup](../../SETUP.md#codex-and-claude-code) covers skill invocation differences.
+Paste into agent chat, one at a time.
 
-## Map my workspace
+## Interview
 
 ```text
-Inspect [PROJECT PATH]. Show the actual project root, important files and their purpose in plain language. Explain which files I edit, which are generated, and whether dependencies are present. Do not install or modify anything.
+I am not a developer. Interview me about this idea: [ONE SENTENCE IDEA].
+Ask one question at a time. Produce a short brief with user, goal, constraints, non-goals, and three checks I can perform myself.
+Stop after the brief; wait for my approval before building.
 ```
 
-## Explain a command
+## Build
 
 ```text
-Before running this command, explain its purpose, working directory, files it can change, network use and whether it needs extra permission: [COMMAND]. If a read-only check can confirm assumptions first, perform that check.
+Build the smallest local version of the approved brief at [BRIEF PATH or paste brief].
+Prefer simple files I can open without a complicated install.
+When done, tell me exactly how to open/run it and how to try the three checks. Do not claim success until I can open it.
 ```
 
-## Make a local checkpoint
+## GitHub prep
 
 ```text
-In [EXACT PROJECT PATH], inspect the repository root and current files. If this project has no independent repository, initialise one here and prepare ignore rules for secrets and generated files. Preserve existing content. Reuse my existing identity; ask for my chosen local identity if needed. Show the staged changes, then create a local checkpoint of this project. Do not push or change global Git settings.
-```
-
-## Write restart instructions
-
-```text
-Use the actual working project to write runbook.md with prerequisites, exact working folder, start/open steps, expected URL or file, normal stop step and one likely troubleshooting check. Verify the steps you can run and label anything untested.
+Help me prepare this project for GitHub. Show me which files should not be committed (secrets, private data).
+Propose a short commit message. Give step-by-step push instructions for a repository I own.
+Do not push to any instructor or course repository. Do not invent credentials.
 ```

@@ -1,31 +1,29 @@
 # Week 2 exercises
 
-Work in your own project under `workspace/projects/`. Use synthetic data only. Copy blank worksheets from [templates](../../templates/README.md).
+Work in your own Codex project under `workspace/projects/` (or a folder you control). Use **local Sticky Notes only**. No Gmail, no secrets, no client data.
 
 ## Hands-on exercise
 
-1. Read your current brief and describe one problem the current version does not solve.
-2. Select the current project instructions, one relevant file or screenshot, and one synthetic input example.
-3. Fill the project-brief template: user, problem, goal, context, constraints, non-goals, decisions and three checks.
-4. Replace vague adjectives with a concrete user action and expected outcome.
-5. Ask a peer to identify one ambiguous sentence; revise it.
-6. Have the agent implement one bounded feature from the brief.
-7. Run the three acceptance checks and record which failed or remained unclear.
+1. Write in your own words: “Skill is ___ / MCP is ___.”
+2. Pick a notes theme (work tasks, meal ideas, lesson ideas, or similar).
+3. Fill three success checks (see README). You must pass at least two.
+4. Paste prompts from [PROMPTS.md](PROMPTS.md) **one at a time**: Brief → Build → Prove.
+5. Connect the Sticky Notes MCP in Codex (Settings → MCP servers, or the config path Codex shows you). Restart/reload if asked.
+6. Call `add_note`, then `list_notes`, then `search_notes`. Open `notes.json` yourself.
+7. After the instructor breaks something (or you rename a tool / clear the file), run the Break/fix prompt. Recheck.
 
 ## Minimum completion
 
-A complete brief with three testable criteria and one implemented change checked against them.
+Sticky Notes MCP connected in Codex **or** instructor-demo plus your written brief and checks; plus evidence of at least one successful tool call (screenshot or short note); plus the sentence “I needed MCP instead of a skill because ___.”
 
 ## Stretch exercise
 
-Give the agent a counterexample such as an owner with no tasks. Add one criterion without expanding the feature.
+Add `delete_note` or `count_notes`, **or** connect the same MCP in a second project and confirm the tools still appear.
 
 ## Homework: 20–30 minutes
 
-Rewrite one everyday request using the same brief structure. Try it on your project for one small change and record whether the first result required less correction.
+Add one tool (`delete_note` or `count_notes`) **or** reconnect the same MCP in a second project. Commit and push if GitHub login works; otherwise save the project folder and note what blocked the push.
 
 ## Submit or show
 
-An updated brief, a three-file-or-fewer context index and a peer acceptance record.
-
-You may demonstrate live or share a sanitized screenshot and short note. Do not upload raw chats, real credentials or private work materials.
+Working MCP (or paper fallback), tool-call evidence, and your one-sentence why. Do not upload raw chats, real credentials, or private work materials.

@@ -1,27 +1,25 @@
 # Week 6 copy-paste prompts
 
-Paste these into agent chat, not the terminal. Replace bracketed values with your actual project paths and decisions. Use one prompt at a time. Codex and Claude Code can use the same plain-language prompts; [Setup](../../SETUP.md#codex-and-claude-code) covers skill invocation differences.
-
-## Inspect the data
+## Plan least access
 
 ```text
-Read materials/data/README.md and the JSON fixtures. Explain the fields and expected results. Identify duplicates, missing required fields, invalid values and any assumptions. Keep source files unchanged. Use only synthetic data.
+I want a read-only connection to [SERVICE OR LOCAL FOLDER] for this task: [TASK].
+Help me write an allow list and a deny list (no send, no delete, no write unless I explicitly say so).
+Do not configure anything yet. Ask me before any OAuth or secret use.
 ```
 
-## Explain API behavior
+## Connect carefully
 
 ```text
-Use materials/api/README.md and its local JSON fixtures to explain a request, a successful response, an empty response and an unavailable source. These are simulations, not live calls. Describe what the report should do in each case and what must not be assumed.
+Help me connect [TARGET] in Codex with the least permissions for a single read test.
+Prefer official read-only scopes. Stop and explain any request that can write, send, or delete.
+After connect, tell me how to verify with one safe read, then stop.
 ```
 
-## Build a draft workflow
+## Prove and document
 
 ```text
-In [PROJECT PATH], build a manually triggered local report using [INPUT PATH] and the approved automation contract. Write a draft only; no email, uploads, real API writes or scheduler. Validate inputs, preserve source data, report rejected records and prevent duplicate entries on repeated runs. Document how to start and stop it. Test normal, empty, duplicate and missing-input cases.
-```
-
-## Review repeatability
-
-```text
-Run or guide me through two executions with the same input. Compare outputs and check for duplicates or unintended writes. Then simulate an unavailable source. Report actual observations, partial results and what a scheduled version would still need. Do not enable a schedule.
+Perform one read-only check: [CHECK].
+Show the tool result. Help me write a short trust boundary: can touch / must not / how to revoke.
+Do not store secrets in the repo.
 ```

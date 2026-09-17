@@ -2,50 +2,50 @@
 
 ## Audience and destination
 
-Three adults who can use files and a browser but have not developed software. Codex is the primary teaching surface; the Claude Code learner uses equivalent natural-language prompts and a separate skill-discovery path.
+Four non-technical professionals who can use files and a browser but have not developed software. **Codex is the primary teaching surface**; a Claude Code learner (if present) uses equivalent natural-language prompts.
 
-By the end, each learner can define a small problem, direct a coding agent, inspect its files and output, test important behavior, recover from one error, and explain what remains uncertain. Reading every line of generated code is not a completion requirement. Knowing what the result should do is.
+By the end, each learner can define a small problem, connect a live tool through MCP, ship a personal utility, inspect and fix with evidence, combine skills with MCP, connect a real service with least access, automate a weekly job with a stop switch, and hand a working demo to a peer. Reading every line of generated code is not a completion requirement. Knowing what the result should do is.
 
 ## Learning design
 
-Each week introduces one new responsibility for the human. Use the same small project repeatedly so that new tools do not hide the lesson. Introduce a technical term only when the learner needs it to continue.
+Each week is one end-to-end build with Codex. Introduce a technical term only when the learner needs it to finish the build.
 
-| Week | Human responsibility | Main artifact | Evidence of learning |
-| --- | --- | --- | --- |
-| 1 | Decide what matters | Interview brief and first build | Explain one decision the interview changed |
-| 2 | Make intent inspectable | Context pack and success criteria | Another person can judge three criteria |
-| 3 | Know where work lives | Workspace map and restart instructions | Restart from a closed terminal |
-| 4 | Give precise feedback | Before/after inspection log | Show two changes and a regression check |
-| 5 | Separate observation from explanation | Bug report and fix evidence | Reproduce before, pass after |
-| 6 | Define repeatable inputs and outputs | Draft automation and contract | Run twice without duplicates; handle bad data |
-| 7 | Decide what to trust | Verification and release decision | Identify one risk the tests do not cover |
-| 8 | Own the outcome | Capstone and handover | A peer can use it with the author silent |
+| Week | Theme | Leave with |
+| --- | --- | --- |
+| 1 (done) | Agents, skills, Deep Interview, GitHub | Brief + first build |
+| 2 (today) | MCP end-to-end — Sticky Notes with Codex | Working local MCP + proof it was called |
+| 3 | Ship a small app (interview → build → GitHub) | One personal utility from a deep-interview brief, in GitHub |
+| 4 | Make it trustworthy | Same app with 3 manual checks + one fix from a failed check |
+| 5 | Skill + MCP workflow | Short workflow: skill gathers intent, MCP does the live action |
+| 6 | Talk to a real service safely | One read-only connection with least access |
+| 7 | Automate a weekly job | Repeatable run with a stop switch (no duplicate mess) |
+| 8 | Capstone demo day | Working demo peers can run with author silent |
 
 ## Scope across the eight sessions
 
-Week 1: agent mental model, skill as a reusable workflow, OMO/OMX naming, guided interview, first build, inspection, light safety.
+Week 1 (historical): agent mental model, skill as a reusable workflow, guided interview, first build, inspection, light safety, GitHub basics.
 
-Week 2: relevant context, a user and goal, constraints and non-goals, examples, three measurable success criteria, handling ambiguity.
+Week 2: plain-language MCP vs skill; build Sticky Notes MCP (`list_notes`, `add_note`, `search_notes` → `notes.json`); connect in Codex; prove a tool call; break and fix.
 
-Week 3: folders and files, paths, terminal and current directory, repository and local history, dependencies and lockfiles, local versus remote, restart instructions.
+Week 3: deep-interview a personal utility, build the smallest version, open the result, put it on GitHub (or document what blocked the push).
 
-Week 4: small changes, observable feedback, preserving working behavior, feedback triage, user checks and iteration logs.
+Week 4: run three manual checks on the Week 3 app; turn one failure into a verified fix.
 
-Week 5: expected versus actual, reproduction, exact sanitized errors, three hypotheses, a discriminating check, minimal fix and regression verification.
+Week 5: write a short skill that gathers intent, then call the Sticky Notes (or similar) MCP to do the live action.
 
-Week 6: structured data, a schema, API request/response, local fixtures before optional live reads, validation, a repeatable task, dry run, duplicate prevention and stop controls.
+Week 6: one read-only connection to a real service (calendar / email / drive / local folder) with least access; no write or delete in class.
 
-Week 7: trust boundaries, diffs, tests versus proof, secrets, untrusted instructions in data, least necessary permissions, deletion and publication decisions.
+Week 7: schedule or batch a weekly job (digest, cleanup, reminder) with a stop switch; run twice without duplicates.
 
-Week 8: select a bounded capstone, accept the brief, build or finish, peer-test, correct, demonstrate and hand over.
+Week 8: bounded capstone demo and peer handover with the author silent.
 
 ## Session rhythm and group size
 
 Follow each week's minute-by-minute agenda; every agenda totals 90 minutes. Protect at least 35 minutes for learner action and at least 10 minutes for inspection and sharing.
 
-During peer checks, rotate driver, user and observer. Each learner owns their own project. Rotate the three roles every five minutes in the scheduled peer-check block so all three practise judging output. During solo work, circulate in short visits instead of solving one person's project for them.
+During peer checks, rotate driver, user and observer. Each learner owns their own project. During solo work, circulate in short visits instead of solving one person's project for them.
 
-The Claude Code learner is not expected to copy the Codex screen. Ask everyone for the same artifact and behavioral evidence.
+Ask everyone for the same artifact and behavioral evidence, even if one learner uses Claude Code instead of Codex.
 
 ## Assessment without code quizzes
 
@@ -59,10 +59,10 @@ Use a simple 0–2 scale on five dimensions:
 | Recovery | Repeats “fix it” | Records an error | Uses evidence to compare hypotheses |
 | Ownership | Cannot explain the result | Can demonstrate it | Can restart, hand over, and state limitations |
 
-Use the scale for coaching after W1, W4 and W8. Capstone readiness means no zero in inspection or ownership; a polished interface is not a substitute. Learners may submit screenshots, a short recording, or a live demonstration with an inspection log.
+Use the scale for coaching after W1, W4 and W8. Capstone readiness means no zero in inspection or ownership. Learners may submit screenshots, a short recording, or a live demonstration with an inspection log.
 
 ## Homework and recovery
 
 Homework takes 20–30 minutes and asks for one small change or evidence artifact. If access or installation fails, accept a completed paper brief and annotated expected behavior. Begin the next class by pairing the learner with the instructor to restore access.
 
-Missing a week: read that week's README, complete the minimum exercise, and bring the exit artifact. Keep stretch tasks optional. Never require a new subscription to complete the course.
+Missing a week: read that week's README, complete the minimum exercise, and bring the exit artifact. Keep stretch tasks optional. Never require a new paid subscription to complete the course. Prefer local/fake data over risky real logins (especially in Weeks 2–5).

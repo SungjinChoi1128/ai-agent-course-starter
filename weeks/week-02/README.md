@@ -1,28 +1,34 @@
-# Week 2: Make your intent clear
+# Week 2: MCP end-to-end — Sticky Notes
 
-Context, goals, constraints and success criteria. 90 minutes, three learners.
+Build a live tool plug with Codex. 90 minutes, four learners. **No Gmail. No secrets.**
 
 ## Expected outcomes
 
-- Select relevant files and examples without dumping an entire private workspace.
-- Write a user-centered goal, constraints and non-goals.
-- Create three success criteria that another learner can test.
+- Explain MCP vs a skill in plain words (Skill = reusable instructions; MCP = live tool plug).
+- Build a local Sticky Notes MCP with `list_notes`, `add_note`, `search_notes` storing data in `notes.json`.
+- Connect it in Codex, call a tool, and prove it with a file or tool result you opened yourself.
 
 ## Before class
 
-Bring the Week 1 project and inspection log. Have materials/demo-brief.md and templates/project-brief.md open.
+Bring Week 1 recall (skill, AGENTS.md, first build). Instructor rehearses Sticky Notes MCP once on a clean Codex project. Have a working fallback MCP ready if install stalls.
 
 ## 90-minute agenda
 
 | Time | Minutes | Activity | What learners do |
 | --- | --- | --- | --- |
-| 0–10 | 10 | Recall | Each learner shows one Week 1 result and one unclear requirement. |
-| 10–20 | 10 | Weak versus clear prompt | Compare 'make it better' with a concrete user task. |
-| 20–35 | 15 | Build a context pack | Locate the relevant brief, example input and current behavior. |
-| 35–50 | 15 | Write success criteria | Learners fill the brief template and exchange it. |
-| 50–70 | 20 | Build from the brief | Request one bounded feature using the new context pack. |
-| 70–83 | 13 | Peer acceptance checks | A peer tries three criteria without the author explaining. |
-| 83–90 | 7 | Revise and reflect | Correct ambiguous wording and save the final brief. |
+| 0–8 | 8 | Recall + hook | Name one thing they built or tried after Week 1; see skill vs MCP side-by-side |
+| 8–18 | 10 | Plain model | Write “Skill is ___ / MCP is ___” in their own words |
+| 18–28 | 10 | Live demo (instructor drives) | Predict what file will change; watch approvals for Sticky Notes MCP |
+| 28–40 | 12 | Brief before build | Pick a notes theme; fill three success checks |
+| 40–70 | 30 | Build-along | With Codex: create MCP → connect → call tools → open `notes.json` |
+| 70–82 | 12 | Break + fix | Reproduce → expected vs actual → minimal fix → recheck |
+| 82–90 | 8 | Share + homework | Show one successful tool call; name what MCP gave that a skill alone could not |
+
+## Three success checks (pass at least 2)
+
+1. Codex lists the MCP tools without you typing the tool names from memory.
+2. `add_note` creates or updates a real `notes.json` you can open in the editor.
+3. `search_notes` returns a note you added earlier (or clearly says none found).
 
 ## Use this lesson
 
@@ -33,6 +39,8 @@ Bring the Week 1 project and inspection log. Have materials/demo-brief.md and te
 
 ## Exit artifact
 
-An updated brief, a three-file-or-fewer context index and a peer acceptance record.
+- Working Sticky Notes MCP (or instructor-demo + paper brief if blocked)
+- Screenshot or short note of one successful tool call
+- One sentence: “I needed MCP instead of a skill because ___.”
 
 [Course overview](../../COURSE_OVERVIEW.md) · [Setup](../../SETUP.md)
