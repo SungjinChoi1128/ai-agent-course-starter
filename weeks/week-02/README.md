@@ -7,6 +7,7 @@ High-volume, mixed-source research with Codex + NotebookLM MCP. 90 minutes, four
 ## Expected outcomes
 
 - Explain MCP vs a skill in plain words (Skill = reusable instructions; MCP = live tool plug — today: NotebookLM).
+- **Install + auth NotebookLM MCP** (Step 1) so tools are visible in Codex before gathering.
 - Gather **15–25** reputable public sources across **at least 4 types** (must include YouTube + journal/article-style + general web; PDF/report strongly preferred as the fourth).
 - Create/populate a NotebookLM notebook through the connected MCP; ask **5–8** sharp questions; save **cited** insights.
 - Leave with a one-page brief under `workspace/` (or project `outputs/`) plus evidence of source counts.
@@ -21,7 +22,7 @@ High-volume, mixed-source research with Codex + NotebookLM MCP. 90 minutes, four
 ## Before class
 
 - Google account that can open [NotebookLM](https://notebooklm.google.com/).
-- NotebookLM MCP installed for Codex (see [INSTRUCTOR.md](INSTRUCTOR.md)).
+- NotebookLM MCP command ready for learners (see [INSTRUCTOR.md](INSTRUCTOR.md)); class path includes **Step 1 install + auth**.
 - Instructor demo notebook with **20+ sources** already built (hook).
 - Learners: Codex open; personal topic ideas ready.
 
@@ -29,15 +30,15 @@ High-volume, mixed-source research with Codex + NotebookLM MCP. 90 minutes, four
 
 | Time | Minutes | Activity | What learners do |
 | --- | --- | --- | --- |
-| 0–8 | 8 | Hook + MCP one-liner | See instructor’s dense NotebookLM notebook; hear Skill vs MCP in one sentence |
-| 8–15 | 7 | Auth / connect | Confirm NotebookLM MCP tools appear in Codex (or follow recovery path) |
-| 15–22 | 7 | Topic pick | Agree one-sentence personal topic (Steps 0–1) |
-| 22–30 | 8 | Research plan | Approve the 15–25 / ≥4-types gather checklist (Step 2) |
-| 30–55 | 25 | **Long gather** (biggest block) | Run capped gather into `sources/source-log.md`; hit 15–25 and ≥4 types (Step 3) |
-| 55–62 | 7 | Quality trim | Flag weak sources; finalize the list (Step 4) |
-| 62–75 | 13 | Notebook create/fill | MCP: create notebook, add sources; record added/failed counts (Step 5) |
-| 75–85 | 10 | Cited insight Q&A | 5–8 NotebookLM questions → `insights/insight-log.md`; human check (Steps 6–7) |
-| 85–90 | 5 | Share + brief | Share one surprising citation; save `outputs/week02-brief.md` (Step 8) |
+| 0–8 | 8 | Hook + Orient (Step 0) | See instructor’s dense NotebookLM notebook; hear Skill vs MCP; agree to start the lesson (no topic yet) |
+| 8–15 | 7 | **Install + auth** (Step 1) | Add NotebookLM MCP if needed (`codex mcp add notebooklm npx notebooklm-mcp@latest`); Chrome Google auth; confirm notebooklm tools visible |
+| 15–22 | 7 | Topic pick (Step 2) | Agree one-sentence personal topic + success picture |
+| 22–30 | 8 | Research plan (Step 3) | Approve the 15–25 / ≥4-types gather checklist |
+| 30–55 | 25 | **Long gather** (Step 4) | Run capped gather into `sources/source-log.md`; hit 15–25 and ≥4 types |
+| 55–62 | 7 | Quality trim (Step 5) | Flag weak sources; finalize the list |
+| 62–75 | 13 | Notebook create/fill (Step 6) | MCP: create notebook, add sources; record added/failed counts |
+| 75–85 | 10 | Cited insight Q&A (Steps 7–8) | 5–8 NotebookLM questions → `insights/insight-log.md`; human check |
+| 85–90 | 5 | Share + brief (Step 9) | Share one surprising citation; save `outputs/week02-brief.md` |
 
 Optional wow if time: open NotebookLM UI and start an **Audio Overview** — do not cut gather or cite time for it.
 

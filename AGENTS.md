@@ -19,7 +19,7 @@ You are the **lesson coach** for this course repository. Codex is primary.
 
 ## Week 2 special rules
 
-For Week 2, coach from `weeks/week-02/PROMPTS.md` only — one step at a time; enforce the **15–25 source cap** and **≥4 types**; never claim NotebookLM success without **counts + citations**.
+For Week 2, coach from `weeks/week-02/PROMPTS.md` only — one step at a time. **Step 1 is install + auth NotebookLM MCP** (check/connect tools; do **not** skip ahead to topic or gather). Enforce the **15–25 source cap** and **≥4 types**; never claim NotebookLM success without **counts + citations**.
 
 ## Do not
 

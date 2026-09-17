@@ -6,19 +6,22 @@ Say **start lesson** or **continue lesson** if your coach follows `AGENTS.md`, o
 
 ## Hands-on exercise
 
-1. Agree a one-sentence personal research topic (Step 0–1).
-2. Approve a gather plan: **15–25 sources**, **≥4 types** (Step 2).
-3. Gather into `sources/source-log.md` until the cap and mix are met (Step 3). Must include **YouTube**, **journal/article-style**, and **general web**; add **PDF/report** (or podcast/newsletter/docs) so you still have ≥4 types.
-4. Trim weak sources with the coach; keep the final list at 15–25 with ≥4 types (Step 4).
-5. Create/populate the NotebookLM notebook via MCP; record added/failed counts (Step 5). If MCP is down, use the UI fallback from the same log.
-6. Run **5–8** cited insight questions → `insights/insight-log.md` (Step 6).
-7. Complete the human check quiz; save the “human check” section (Step 7).
-8. Write `outputs/week02-brief.md` under one page (Step 8).
+1. Orient with the coach; agree to start — do not jump to topic yet (Step 0).
+2. **Install + auth NotebookLM MCP** (Step 1): check if connected; if not, run `codex mcp add notebooklm npx notebooklm-mcp@latest`; complete Google/Chrome auth; confirm notebooklm tools are visible. Stop for yes before continuing.
+3. Agree a one-sentence personal research topic + success picture (Step 2).
+4. Approve a gather plan: **15–25 sources**, **≥4 types** (Step 3).
+5. Gather into `sources/source-log.md` until the cap and mix are met (Step 4). Must include **YouTube**, **journal/article-style**, and **general web**; add **PDF/report** (or podcast/newsletter/docs) so you still have ≥4 types.
+6. Trim weak sources with the coach; keep the final list at 15–25 with ≥4 types (Step 5).
+7. Create/populate the NotebookLM notebook via MCP; record added/failed counts (Step 6). If MCP is down, use the UI fallback from the same log.
+8. Run **5–8** cited insight questions → `insights/insight-log.md` (Step 7).
+9. Complete the human check quiz; save the “human check” section (Step 8).
+10. Write `outputs/week02-brief.md` under one page (Step 9).
 
 Copy finished artifacts into `workspace/` if your project folder is outside this repo’s workspace guidance.
 
 ## Done-when checklist
 
+- [ ] **Step 1 done:** NotebookLM MCP tools visible in Codex, **or** Install-failed / MCP-not-connected recovery documented.
 - [ ] `sources/source-log.md` exists with **15–25** rows and a **count-by-type** summary.
 - [ ] At least **4 source types** present; YouTube + journal/article + web included.
 - [ ] Notebook name/id + **sources added** count (and failed list if any).
@@ -28,7 +31,7 @@ Copy finished artifacts into `workspace/` if your project folder is outside this
 
 ## Minimum completion (if MCP blocked)
 
-Final source log at 15–25 / ≥4 types + drafted NotebookLM questions + one-page brief + human check notes. Document exactly what blocked MCP connect.
+Final source log at 15–25 / ≥4 types + drafted NotebookLM questions + one-page brief + human check notes. Document exactly what blocked MCP connect (after attempting Step 1).
 
 ## Stretch (only if early)
 

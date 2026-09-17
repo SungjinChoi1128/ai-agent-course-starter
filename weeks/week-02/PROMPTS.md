@@ -19,18 +19,44 @@ You are my Week 2 lesson coach for a non-technical learner.
 Read AGENTS.md and CURRENT_WEEK.md in this project if they exist.
 Then read weeks/week-02/PROMPTS.md and wait.
 Speak in plain language. One step at a time. Do not skip ahead.
-Ask me: what personal research topic do I want to go deep on today?
-Help me narrow it to something I care about and can finish in this session
-(not a whole career, not "all of AI").
-Stop after we agree the topic in one sentence.
+In one or two sentences, tell me what Week 2 is about
+(NotebookLM research via MCP, 15–25 mixed sources, cited insights).
+Ask me if I am ready to start the lesson.
+Do NOT ask for my research topic yet. Do NOT install or gather anything yet.
+Stop after I say yes to starting — next is Step 1 (install + auth), not topic.
 ```
 
-## Step 1 — Topic + success picture
+## Step 1 — Install + auth NotebookLM MCP
 
 ```
-My research topic in one sentence is: [TOPIC].
+Before any research topic or gathering, set up NotebookLM MCP.
 
-Help me write:
+1) Check whether NotebookLM MCP is already connected in Codex
+   (list MCP servers / tools; look for notebooklm tools).
+2) If it is NOT connected, guide me to run (or run if you can):
+   codex mcp add notebooklm npx notebooklm-mcp@latest
+   Then restart or reload Codex if the tools do not appear yet.
+3) Walk me through Google/Chrome auth in plain language for a non-technical learner:
+   - Open the auth / login flow the server asks for
+   - Sign in with my Google account in Chrome
+   - Approve access when the browser asks
+   - Come back to Codex when login finishes
+4) Verify tools are visible: list notebooklm tools, or confirm out loud that
+   NotebookLM MCP tools appear in Codex.
+5) Stop for my yes before we pick a topic or gather sources.
+
+If install or auth fails, use the "Install failed" recovery in this PROMPTS.md
+and do not skip ahead to notebook creation.
+```
+
+## Step 2 — Topic + success picture
+
+```
+Help me pick and lock a personal research topic for this session.
+Ask what I want to go deep on; narrow it to something I care about and can finish today
+(not a whole career, not "all of AI"). Agree the topic in one sentence.
+
+Then help me write:
 1) Who this research is for (me, or a specific person/role)
 2) What decision or output I want after the notebook (e.g. teaching notes, a brief, a plan)
 3) Three questions I want the sources to help answer
@@ -38,7 +64,7 @@ Help me write:
 Keep it short. Do not gather sources yet. Stop for my yes.
 ```
 
-## Step 2 — Research plan (before any gathering)
+## Step 3 — Research plan (before any gathering)
 
 ```
 Make a gathering plan for NotebookLM.
@@ -51,7 +77,7 @@ Aim for a mix — not 20 YouTube links.
 Do not search the web yet. Stop for my yes on the plan.
 ```
 
-## Step 3 — High-volume gather (capped)
+## Step 4 — High-volume gather (capped)
 
 ```
 Execute the approved plan.
@@ -69,7 +95,7 @@ When you hit the cap, STOP gathering and show me the count by type.
 Do not create a NotebookLM notebook yet.
 ```
 
-## Step 4 — Quality trim (keep the power, cut the junk)
+## Step 5 — Quality trim (keep the power, cut the junk)
 
 ```
 Review sources/source-log.md.
@@ -79,7 +105,7 @@ Ask me which flagged ones to drop. Wait for my choices.
 Then rewrite sources/source-log.md to the final list only.
 ```
 
-## Step 5 — Create the NotebookLM notebook (MCP)
+## Step 6 — Create the NotebookLM notebook (MCP)
 
 ```
 Using the NotebookLM MCP (or the connected NotebookLM tools),
@@ -91,7 +117,7 @@ When done, show me: notebook name/id, sources added count, failed count.
 Do not ask notebook questions yet.
 ```
 
-## Step 6 — Insight extraction (cited)
+## Step 7 — Insight extraction (cited)
 
 ```
 Ask NotebookLM questions that extract useful insight for my three research questions.
@@ -111,7 +137,7 @@ Write the results to insights/insight-log.md with this shape for each item:
 Stop after the insight log is written. Do not build a final brief yet.
 ```
 
-## Step 7 — Learner check (human in the loop)
+## Step 8 — Learner check (human in the loop)
 
 ```
 Quiz me out loud (in chat):
@@ -123,7 +149,7 @@ Wait for my answers. Then update insights/insight-log.md with a short
 "human check" section capturing what I said.
 ```
 
-## Step 8 — Session exit artifact
+## Step 9 — Session exit artifact
 
 ```
 Create outputs/week02-brief.md with:
@@ -145,6 +171,16 @@ and append any new cited insights to insights/insight-log.md.
 ```
 
 ## Recovery prompts (instructor pocket)
+
+**Install failed**
+```
+NotebookLM MCP install or auth did not work. In plain language:
+1) What we tried and where it stopped
+2) Exact next clicks or commands to retry (or skip for now)
+3) Confirm we will finish source-log + drafted NotebookLM questions without MCP,
+   and add sources in the NotebookLM UI later
+Do not create a notebook via MCP until tools are visible. Stop for my yes.
+```
 
 **MCP not connected**
 ```
