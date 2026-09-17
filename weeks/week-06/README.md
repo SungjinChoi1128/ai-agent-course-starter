@@ -1,38 +1,36 @@
-# Week 6: Work with data and repeatable tasks
+# Week 6: Talk to a real service safely
 
-Structured data, APIs and safe automation. 90 minutes, three learners.
+One read-only connection with least access. 90 minutes, four learners.
 
 ## Expected outcomes
 
-- Describe a schema and validate a small synthetic dataset.
-- Explain an API request and response using a local fixture.
-- Run a draft-report workflow twice safely and describe its trigger, output and stop condition.
+- Choose one real service **or** a local-folder stand-in if login is risky.
+- Connect read-only with the least permissions that still prove the idea.
+- Document what the agent can touch, what it must not do, and how you verified a successful read.
 
 ## Before class
 
-Open materials/data/README.md and the local API fixtures. Required exercises work offline. A live read-only API is an optional instructor extension after reviewing current official documentation.
+Read [materials/safety-cards.md](../../materials/safety-cards.md). Prefer calendar/email/drive **read-only**, or a local folder of fake files if org policy / risk is high. No write, send, delete, or paid new subscriptions required.
 
 ## 90-minute agenda
 
 | Time | Minutes | Activity | What learners do |
 | --- | --- | --- | --- |
-| 0–10 | 10 | Define the repeatable job | Choose a weekly open-actions report and its intended reader. |
-| 10–25 | 15 | Inspect data | Read the fixture schema and find duplicate, missing and invalid values. |
-| 25–40 | 15 | API mental model | Compare a request, a response and a failure using local JSON fixtures. |
-| 40–60 | 20 | Build the draft workflow | Generate a local report from validated inputs without sending anything. |
-| 60–75 | 15 | Repeat and break inputs | Run twice; test duplicate IDs, invalid fields and an unavailable source. |
-| 75–85 | 10 | Automation contract | Write the trigger, dry run, duplicate rule, failure behavior and stop control. |
-| 85–90 | 5 | Exit | Show the report and distinguish a repeatable task from an enabled schedule. |
+| 0–10 | 10 | Risk talk | Name what “least access” means for their choice |
+| 10–25 | 15 | Choose target | Pick service or local stand-in; write allow/deny list |
+| 25–55 | 30 | Connect read-only | Configure MCP or equivalent; refuse write scopes |
+| 55–70 | 15 | Prove a read | One successful list/search/get; screenshot or note |
+| 70–82 | 12 | Trust boundary | Fill what it can touch / must not do / how to revoke |
+| 82–90 | 8 | Share | Show read result + one permission they refused |
 
 ## Use this lesson
 
 1. Instructor: read [Instructor notes](INSTRUCTOR.md).
 2. Learners: open [Exercises and homework](EXERCISES.md).
 3. Copy one prompt at a time from [Prompts](PROMPTS.md).
-4. Keep evidence using the [templates](../../templates/README.md).
 
 ## Exit artifact
 
-Draft report, input-validation evidence, repeat-run evidence and an automation contract with scheduling status.
+Working read-only connection (or local stand-in), one successful read evidence, written trust boundary (allow/deny + revoke).
 
 [Course overview](../../COURSE_OVERVIEW.md) · [Setup](../../SETUP.md)

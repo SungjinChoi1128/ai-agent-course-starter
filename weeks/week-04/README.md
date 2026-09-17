@@ -1,38 +1,36 @@
-# Week 4: Improve through observation
+# Week 4: Make it trustworthy
 
-Build, inspect and improve in small steps. 90 minutes, three learners.
+Three manual checks + one fix from a failed check. 90 minutes, four learners.
 
 ## Expected outcomes
 
-- Translate user friction into specific feedback.
-- Make two bounded changes while preserving a known working path.
-- Use before/after evidence and regression checks to decide whether a change helped.
+- Run three concrete checks on last week's app without trusting the agent's claim.
+- Record expected vs actual for at least one failure or surprise.
+- Apply a minimal fix and recheck both the failure and a previously working path.
 
 ## Before class
 
-Ask students to bring a working project and its runbook. Prepare the inspection-log template and feedback cards.
+Bring the Week 3 utility and its brief. Have [templates/inspection-log.md](../../templates/inspection-log.md) and [templates/bug-report.md](../../templates/bug-report.md) ready.
 
 ## 90-minute agenda
 
 | Time | Minutes | Activity | What learners do |
 | --- | --- | --- | --- |
-| 0–10 | 10 | Restart and baseline | Run the project and record one existing successful path. |
-| 10–20 | 10 | Feedback demo | Compare 'make it nicer' with an observable interaction problem. |
-| 20–35 | 15 | Silent user test | Rotate driver, user and observer every five minutes. |
-| 35–55 | 20 | First improvement | Choose one high-impact issue, implement it and recheck. |
-| 55–70 | 15 | Second improvement | Make one more bounded change and record before/after evidence. |
-| 70–83 | 13 | Regression round | Re-run old and new checks, including an empty state. |
-| 83–90 | 7 | Show evidence | Explain which change helped and which idea was deferred. |
+| 0–10 | 10 | Restart | Open last week's app from their own notes; baseline one success |
+| 10–25 | 15 | Write checks | Turn brief goals into three observable checks |
+| 25–45 | 20 | Silent user test | Peer tries checks; author stays silent; observer logs |
+| 45–70 | 25 | Fix from evidence | Pick one failed/unclear check; minimal fix; recheck |
+| 70–82 | 12 | Regression | Re-run all three checks including an empty/edge case |
+| 82–90 | 8 | Show evidence | Before/after note; what is still uncertain |
 
 ## Use this lesson
 
 1. Instructor: read [Instructor notes](INSTRUCTOR.md).
 2. Learners: open [Exercises and homework](EXERCISES.md).
 3. Copy one prompt at a time from [Prompts](PROMPTS.md).
-4. Keep evidence using the [templates](../../templates/README.md).
 
 ## Exit artifact
 
-Two bounded changes, a before/after log and an explicit list of deferred ideas.
+Three checks with pass/fail, one bug note with expected vs actual, verified fix (or precise blocker).
 
 [Course overview](../../COURSE_OVERVIEW.md) · [Setup](../../SETUP.md)

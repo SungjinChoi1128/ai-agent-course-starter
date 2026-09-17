@@ -1,3 +1,5 @@
+> **Historical session (completed).** This week stays as taught. From Week 2 onward the course uses the practical MCP build arc — start at [Week 2](../week-02/README.md) for today's Sticky Notes MCP class.
+
 # Week 1: Your first useful build
 
 Coding agents, skills and a Deep Interview. 90 minutes, three learners.

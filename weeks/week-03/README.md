@@ -1,38 +1,36 @@
-# Week 3: Know where your work lives
+# Week 3: Ship a small app
 
-Workspace, files, terminal, repository and dependencies. 90 minutes, three learners.
+Interview → build → open the result → GitHub. 90 minutes, four learners.
 
 ## Expected outcomes
 
-- Find the project root and explain the role of its important files.
-- Distinguish local files, a local Git repository and a remote repository.
-- Restart a project from written instructions and understand why an install is needed.
+- Run a short deep-interview (or reuse Week 1 skill) for one personal utility.
+- Approve a brief, build the smallest useful version with Codex, and open the result yourself.
+- Put the project on GitHub you own (or document exactly what blocked the push).
 
 ## Before class
 
-Use the existing project. Have the file map and restart-runbook templates ready. No new framework is required; a zero-dependency project is a valid example.
+Bring Week 2 NotebookLM artifacts if useful (optional). Have Deep Interview / classroom interview prompt ready. Each learner picks one small personal utility idea (packing list, reading tracker, habit check-in, lesson planner — not a big product).
 
 ## 90-minute agenda
 
 | Time | Minutes | Activity | What learners do |
 | --- | --- | --- | --- |
-| 0–10 | 10 | Find the project | Learners locate the actual project folder and current output. |
-| 10–25 | 15 | File and terminal tour | Map files; run a harmless directory and Git status check. |
-| 25–40 | 15 | Local history | Create a local checkpoint in the learner project after inspecting files. |
-| 40–55 | 15 | Dependencies | Inspect existing manifests/lockfiles or explain why none is needed. |
-| 55–75 | 20 | Restart practice | Close the project's terminal/server, then reopen using a written runbook. |
-| 75–85 | 10 | Peer runbook test | Another learner follows the instructions and records missing steps. |
-| 85–90 | 5 | Exit | Explain where files, history and any remote live. |
+| 0–8 | 8 | Pitch | One-minute idea each; cut scope to something finishable today |
+| 8–20 | 12 | Interview | Deep Interview or compatibility prompt; approve brief + 3 checks |
+| 20–50 | 30 | Build | Codex builds the smallest local version; learners open/run it |
+| 50–65 | 15 | Inspect | Try happy path + one empty/edge case; one small correction |
+| 65–82 | 17 | GitHub | Init/commit if needed; push to a repo the learner owns; note blockers |
+| 82–90 | 8 | Share | Show the live result + repo link or blocker note |
 
 ## Use this lesson
 
 1. Instructor: read [Instructor notes](INSTRUCTOR.md).
 2. Learners: open [Exercises and homework](EXERCISES.md).
 3. Copy one prompt at a time from [Prompts](PROMPTS.md).
-4. Keep evidence using the [templates](../../templates/README.md).
 
 ## Exit artifact
 
-File map, restart runbook, repository location and checkpoint reference or documented deferral.
+Approved brief, working local utility, three checks attempted, GitHub URL **or** written push blocker.
 
 [Course overview](../../COURSE_OVERVIEW.md) · [Setup](../../SETUP.md)

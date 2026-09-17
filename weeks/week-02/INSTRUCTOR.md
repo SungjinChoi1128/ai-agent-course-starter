@@ -1,35 +1,71 @@
-# Week 2 instructor notes
+# Week 2 instructor notes — NotebookLM research power session
 
-## Preparation
+## Pre-class checklist (do all)
 
-Bring the Week 1 project and inspection log. Have materials/demo-brief.md and templates/project-brief.md open.
+- [ ] Every learner has a **Google account** that can open NotebookLM (browser login works).
+- [ ] **NotebookLM MCP** rehearsed once on the instructor machine (learners still do **Step 1** in class):
 
-## Demo idea
+  ```bash
+  codex mcp add notebooklm npx notebooklm-mcp@latest
+  ```
 
-Add an owner filter to the tracker. Example: Alex owns two open tasks and Sam owns one; filtering Alex shows two; clearing the filter shows all three.
+  Then restart/reload Codex, run the server’s auth/setup so Chrome login succeeds, and confirm tools appear (list notebooks or equivalent).
+- [ ] **Demo notebook** ready with **20+ mixed sources** (YouTube + journals/articles + web + at least one PDF/report) for the opening hook.
+- [ ] Fallback ready: if MCP auth fails, learners still finish the **source log** with Codex; add sources in the **NotebookLM UI** from that list after class (or mid-class if time).
+- [ ] Whiteboard line: **Skill = reusable instructions. MCP = live tool plug. Today the plug is NotebookLM — volume + citations.**
+- [ ] Say the caps out loud: **15–25 sources, ≥4 types. Stop at the cap.**
+- [ ] Class path includes learner **Step 1 = install + auth** (not only instructor pre-class).
 
-## Instructor script and facilitation
+## Open (≤2 min)
 
-Open with: “What did the agent have to guess last week?” Collect one guess from each learner. Explain that useful context is the information that would change a decision.
+“Last time we used *skills*. Today we use *MCP* to plug Codex into NotebookLM. First you’ll install and sign in (Step 1). Then you’ll pick a topic you care about, gather a lot of mixed sources — not five links — load a notebook, then ask sharp questions and keep only **cited** insights.”
 
-Demo the request “Make the tracker smarter.” Ask the group to predict three different interpretations. Then show a goal for a coordinator who needs to see incomplete tasks for one owner. The constraint is local fake data; the non-goal is notifications.
+## Hook (0–8)
 
-Read one example input and its expected output. Say: “An example lets us see whether we mean the same thing.” Show the difference between “fast” and “the open count updates after I tick one task.”
+Show your pre-built dense notebook. Ask: “What would change if you had 20 sources instead of 5?” One-liner: MCP lets the agent **do** something in NotebookLM, not only write advice. Learners run **Step 0 Orient** — agree to start; do **not** jump to topic yet.
 
-At minute 20, let learners choose at most three relevant files to mention. Ask why each matters. A transcript of every previous chat is not a useful default context pack.
+## Facilitation map
 
-At minute 35, write a criterion in action/result form: “Given two open tasks for Alex and one for Sam, selecting Alex shows two tasks.” Have a peer try to find an interpretation that would make the criterion misleading.
+| Block | Protect | Tip |
+| --- | --- | --- |
+| **Step 1 Install + auth** | 7 min | Confirm tools visible. If stuck >3 min → recovery “Install failed” or “MCP not connected”; keep later gathering on track |
+| Topic + plan (Steps 2–3) | ~15 min | Narrow topics; reject “all of AI” |
+| **Gather (Step 4)** | **~25 min** | Biggest chunk. Circulate. Enforce 15–25 and ≥4 types. No notebook yet |
+| Trim (Step 5) | 7 min | Cut junk; keep type mix |
+| Notebook fill (Step 6) | 13 min | MCP add; log failures; UI fallback from the same list |
+| Insights + share (Steps 7–9) | 15 min | Cap at 5–8 questions; insist on citations; one surprising citation aloud |
 
-During implementation, stop scope growth by referring to the explicit non-goals. At peer review, keep the author silent until the user has attempted the check. Revise the brief if the check itself was ambiguous.
+## Timebox tips
+
+- Install/auth stuck → paste **Install failed** recovery; continue source-log path without MCP.
+- Gathering runs long → paste **Gathering is too slow** recovery (narrow to 15, still ≥4 types).
+- Early finisher → Stretch prompt only (≤25 total); or help a neighbor as observer.
+- Optional Audio Overview in NotebookLM UI only after insight log exists.
+
+## Failure fallbacks
+
+1. **Install / MCP not connected / auth fails:** Use **Install failed** or **MCP not connected** in [PROMPTS.md](PROMPTS.md). Finalize `sources/source-log.md` + draft questions. Add sources in NotebookLM UI from Codex’s list. Still require the brief and human check.
+2. **Source fails to add:** Replace it; do not stop early. Record under “failed”.
+3. **Topic paralysis:** Use **Learner stuck choosing a topic** recovery.
+4. **Agent dumps whole pipeline:** Stop; point at `AGENTS.md` — one step, wait for learner yes. Do not skip Step 1.
 
 ## What to watch for
 
-- Ask the learner to demonstrate: Select relevant files and examples without dumping an entire private workspace.
-- Ask the learner to demonstrate: Write a user-centered goal, constraints and non-goals.
-- Ask the learner to demonstrate: Create three success criteria that another learner can test.
+- Skipping Step 1 (install + auth) and jumping to topic/gather → put them back on Step 1 until tools are confirmed or recovery is chosen.
+- Stopping at ~5 sources → push back to the cap/mix.
+- Paywalled/pirated PDFs or client secrets → stop; public/reputable only.
+- “NotebookLM worked” with no counts/citations → not done.
+- Skipping trim or human check → put them back on Steps 5 and 8.
 
-Use the same acceptance standard for Codex and Claude Code. If a tool-specific command is unavailable, use natural language and the current product's supported surface; do not invent a command.
+## Debrief prompts
 
-## Debrief
+“What did volume + mix give you that three Google results would not?”  
+“Which insight has the strongest citation? Which is still uncited?”  
+Collect: source-log evidence, notebook counts, insight log, one-page brief.
 
-Ask: “What did you decide? What did you observe? What remains uncertain?” Collect an updated brief, a three-file-or-fewer context index and a peer acceptance record.
+## Recovery prompts (pocket — full text in PROMPTS.md)
+
+- Install failed → plain-language retry or UI path; no MCP notebook until tools visible  
+- MCP not connected → finish log + manual NotebookLM path  
+- Gathering too slow → 15 sources, ≥4 types, finish log now  
+- Topic stuck → 5 personal options, learner picks one  
