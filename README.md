@@ -8,11 +8,11 @@ Eight practical, 90-minute sessions for four non-technical professionals. **Code
 
 ## Start here
 
-**Teaching today? Open [Start today's lesson](FIRST_LESSON.md).** After Week 1, open the **current week** (Week 2 = Sticky Notes MCP end-to-end).
+**Teaching today? Open [Start today's lesson](FIRST_LESSON.md).** After Week 1, open the **current week** (Week 2 = NotebookLM research power session via MCP). Coach files: [AGENTS.md](AGENTS.md), [CURRENT_WEEK.md](CURRENT_WEEK.md).
 
 1. Instructor: read [Teaching Guide](TEACHING_GUIDE.md) and complete the setup rehearsal before class.
 2. Everyone: follow [Setup](SETUP.md). If Git is missing, start with the [bootstrap prompt](prompts/00-bootstrap.md) in your already-installed coding agent.
-3. Week 1 is historical completed content. For today's class, open [Week 2](weeks/week-02/README.md) (Sticky Notes MCP with Codex).
+3. Week 1 is historical completed content. For today's class, open [Week 2](weeks/week-02/README.md) (NotebookLM high-volume research via MCP). Say **start lesson** / **continue lesson** if Codex is coaching from AGENTS.md.
 4. Keep your work in `workspace/projects/` and your reflections in `workspace/notes/`. These are ignored by Git in this teaching repository.
 5. Come back next week with one thing that worked and one thing you could not yet verify.
 
@@ -23,7 +23,7 @@ Git is the local version-history tool. GitHub is the website for sharing reposit
 | Week | Theme | Leave with |
 | --- | --- | --- |
 | [1](weeks/week-01/README.md) (done) | Agents, skills, Deep Interview, GitHub | Brief + first build |
-| [2](weeks/week-02/README.md) (today) | MCP end-to-end — Sticky Notes | Working local MCP + proof it was called |
+| [2](weeks/week-02/README.md) (today) | NotebookLM research power session via MCP | 15–25 mixed sources + cited insights in NotebookLM |
 | [3](weeks/week-03/README.md) | Ship a small app (interview → GitHub) | Personal utility from a brief, in GitHub |
 | [4](weeks/week-04/README.md) | Make it trustworthy | 3 manual checks + one verified fix |
 | [5](weeks/week-05/README.md) | Skill + MCP workflow | Skill gathers intent; MCP does the live action |
@@ -42,7 +42,7 @@ See [Course Overview](COURSE_OVERVIEW.md) for progression and assessment.
 - `workspace/`: a local practice area, with guidance for creating separate project repositories.
 - `sessions/`: historical class records (do not delete).
 
-Week 1 used a meeting-action tracker as a running example. From Week 2 the focus is practical builds (Sticky Notes MCP first). Learners may still use fixtures in `materials/` as safe fake data. **No Gmail or secrets in Week 2.**
+Week 1 used a meeting-action tracker as a running example. From Week 2 the focus is practical MCP builds — starting with a **NotebookLM research power session** (15–25 sources, ≥4 types, cited insights). Learners may still use fixtures in `materials/` as safe fake data. **No client secrets, no piracy, no paywall hacking.**
 
 ## Reuse or teach the course
 

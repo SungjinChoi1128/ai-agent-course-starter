@@ -1,29 +1,43 @@
-# Week 2 exercises
+# Week 2 exercises — NotebookLM research power session
 
-Work in your own Codex project under `workspace/projects/` (or a folder you control). Use **local Sticky Notes only**. No Gmail, no secrets, no client data.
+Work in a Codex project you control (ideally under `workspace/projects/`). Personal topic only. **No client secrets, no piracy, no paywall hacking.**
+
+Say **start lesson** or **continue lesson** if your coach follows `AGENTS.md`, or paste steps from [PROMPTS.md](PROMPTS.md) **one at a time**.
 
 ## Hands-on exercise
 
-1. Write in your own words: “Skill is ___ / MCP is ___.”
-2. Pick a notes theme (work tasks, meal ideas, lesson ideas, or similar).
-3. Fill three success checks (see README). You must pass at least two.
-4. Paste prompts from [PROMPTS.md](PROMPTS.md) **one at a time**: Brief → Build → Prove.
-5. Connect the Sticky Notes MCP in Codex (Settings → MCP servers, or the config path Codex shows you). Restart/reload if asked.
-6. Call `add_note`, then `list_notes`, then `search_notes`. Open `notes.json` yourself.
-7. After the instructor breaks something (or you rename a tool / clear the file), run the Break/fix prompt. Recheck.
+1. Agree a one-sentence personal research topic (Step 0–1).
+2. Approve a gather plan: **15–25 sources**, **≥4 types** (Step 2).
+3. Gather into `sources/source-log.md` until the cap and mix are met (Step 3). Must include **YouTube**, **journal/article-style**, and **general web**; add **PDF/report** (or podcast/newsletter/docs) so you still have ≥4 types.
+4. Trim weak sources with the coach; keep the final list at 15–25 with ≥4 types (Step 4).
+5. Create/populate the NotebookLM notebook via MCP; record added/failed counts (Step 5). If MCP is down, use the UI fallback from the same log.
+6. Run **5–8** cited insight questions → `insights/insight-log.md` (Step 6).
+7. Complete the human check quiz; save the “human check” section (Step 7).
+8. Write `outputs/week02-brief.md` under one page (Step 8).
 
-## Minimum completion
+Copy finished artifacts into `workspace/` if your project folder is outside this repo’s workspace guidance.
 
-Sticky Notes MCP connected in Codex **or** instructor-demo plus your written brief and checks; plus evidence of at least one successful tool call (screenshot or short note); plus the sentence “I needed MCP instead of a skill because ___.”
+## Done-when checklist
 
-## Stretch exercise
+- [ ] `sources/source-log.md` exists with **15–25** rows and a **count-by-type** summary.
+- [ ] At least **4 source types** present; YouTube + journal/article + web included.
+- [ ] Notebook name/id + **sources added** count (and failed list if any).
+- [ ] `insights/insight-log.md` has **≥3 cited insights** (claim + citation) and a human-check section.
+- [ ] `outputs/week02-brief.md` (or the same file under `workspace/`) with topic, counts, top insights, open questions, one next action.
+- [ ] You shared one surprising citation aloud (or wrote it in the brief).
 
-Add `delete_note` or `count_notes`, **or** connect the same MCP in a second project and confirm the tools still appear.
+## Minimum completion (if MCP blocked)
+
+Final source log at 15–25 / ≥4 types + drafted NotebookLM questions + one-page brief + human check notes. Document exactly what blocked MCP connect.
+
+## Stretch (only if early)
+
+Add 1–3 sources of a **missing** type only (stay ≤25), re-run two NotebookLM questions, append cited insights.
 
 ## Homework: 20–30 minutes
 
-Add one tool (`delete_note` or `count_notes`) **or** reconnect the same MCP in a second project. Commit and push if GitHub login works; otherwise save the project folder and note what blocked the push.
+If the notebook was incomplete: finish adding sources (MCP or UI), re-run two cited questions, update the brief. Optional: generate an Audio Overview in the NotebookLM UI and note one takeaway (no upload of private client material).
 
 ## Submit or show
 
-Working MCP (or paper fallback), tool-call evidence, and your one-sentence why. Do not upload raw chats, real credentials, or private work materials.
+Source-count evidence, three cited insights, and the one-page brief. Do not upload raw chats, credentials, or private work materials.

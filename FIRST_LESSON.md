@@ -3,7 +3,8 @@
 ## Which week is “today”?
 
 - **Week 1** is historical completed content (agents, skills, Deep Interview, first build, GitHub).
-- **After Week 1, open the current week.** For this cohort, **today = Week 2: Sticky Notes MCP end-to-end with Codex.**
+- **After Week 1, open the current week.** For this cohort, **today = Week 2: NotebookLM research power session via MCP.**
+- Coach pointer: [`CURRENT_WEEK.md`](CURRENT_WEEK.md) → [`AGENTS.md`](AGENTS.md). Learners may say **start lesson** or **continue lesson**.
 
 If you are replaying the first session for a new learner, use the Week 1 path below. Otherwise skip straight to Week 2.
 
@@ -11,23 +12,23 @@ If you are replaying the first session for a new learner, use the Week 1 path be
 
 1. Open [Week 2 instructor notes](weeks/week-02/INSTRUCTOR.md).
 2. Put [Week 2 agenda](weeks/week-02/README.md) on screen.
-3. Confirm each learner can open Codex and create/open a project folder.
-4. Rehearse Sticky Notes MCP once: `list_notes`, `add_note`, `search_notes` → `notes.json`. **No Gmail, no secrets.**
-5. Keep a pre-built Sticky Notes MCP on the instructor machine as a fallback if a learner's build stalls.
+3. Confirm each learner can open Codex and has a Google account for NotebookLM.
+4. Confirm NotebookLM MCP: `codex mcp add notebooklm npx notebooklm-mcp@latest` (then auth). Have a **demo notebook with 20+ sources** ready.
+5. Say the caps: **15–25 sources, ≥4 types.** Fallback: add sources in NotebookLM UI from Codex’s gathered list.
 
 ## Say this (Week 2)
 
-“Last time we used *skills* — written instructions the agent reuses. Today we add *MCP*: a plug that lets the agent use a live tool outside the chat. We’ll build Sticky Notes with Codex, connect it, and prove it works.”
+“Last time we used *skills* — written instructions the agent reuses. Today we add *MCP*: a plug into NotebookLM. You’ll pick a topic you care about, gather quite a lot of mixed sources, fill a notebook, and keep only **cited** insights.”
 
-Whiteboard line: **Skill = reusable instructions. MCP = live tool plug. Today we build the plug.**
+Whiteboard line: **Skill = reusable instructions. MCP = live tool plug. Today: NotebookLM — volume + citations.**
 
 ## The teaching sequence (Week 2)
 
-- Recall Week 1; skill vs MCP in plain words.
-- Instructor live-builds Sticky Notes MCP; learners predict what file changes.
-- Learners write three success checks, then build-along with [Week 2 prompts](weeks/week-02/PROMPTS.md).
-- Break one thing, fix with evidence, share a successful tool call.
-- Homework: add a tool or reconnect in a second project.
+- Hook with your pre-built dense notebook; MCP one-liner; auth/connect.
+- Topic pick → research plan → **long gather** (biggest block) → trim.
+- Create/fill NotebookLM notebook via MCP → 5–8 cited Qs → human check → one-page brief.
+- Share one surprising citation. Optional Audio Overview in the UI if time.
+- Prompts: [Week 2 PROMPTS.md](weeks/week-02/PROMPTS.md) — one step at a time.
 
 ## If you need Week 1 again (new learner catch-up)
 

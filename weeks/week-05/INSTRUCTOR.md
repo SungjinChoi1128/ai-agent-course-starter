@@ -2,7 +2,7 @@
 
 ## Preparation
 
-Confirm Sticky Notes MCP still works, or rebuild quickly with Week 2 prompts. Review skill paths in SETUP.md. Keep the chain tiny: skill = questions/format; MCP = list/add/search.
+Confirm NotebookLM MCP (or another approved live MCP) still works, or rebuild quickly with Week 2 prompts. Review skill paths in SETUP.md. Keep the chain tiny: skill = questions/format; MCP = list/add/search.
 
 ## Open
 

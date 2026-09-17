@@ -1,44 +1,67 @@
-# Week 2 instructor notes
+# Week 2 instructor notes — NotebookLM research power session
 
-## Preparation (≈20 min before class)
+## Pre-class checklist (do all)
 
-- Rehearse once on a clean Codex project: create Sticky Notes MCP → connect → call `add_note` then `list_notes` → open `notes.json` → break one thing → fix.
-- Preferred live build: local Sticky Notes with `list_notes`, `add_note(text)`, `search_notes(query)` → `notes.json`. **No accounts, no cloud APIs, no Gmail.**
-- Fallback: demo on your machine; learners write brief + success checks on paper; finish connect as homework.
-- Whiteboard line: **Skill = reusable instructions. MCP = live tool plug. Today we build the plug.**
+- [ ] Every learner has a **Google account** that can open NotebookLM (browser login works).
+- [ ] **NotebookLM MCP** installed for Codex on instructor machine and rehearsed once:
+
+  ```bash
+  codex mcp add notebooklm npx notebooklm-mcp@latest
+  ```
+
+  Then restart/reload Codex, run the server’s auth/setup so Chrome login succeeds, and confirm tools appear (list notebooks or equivalent).
+- [ ] **Demo notebook** ready with **20+ mixed sources** (YouTube + journals/articles + web + at least one PDF/report) for the opening hook.
+- [ ] Fallback ready: if MCP auth fails, learners still finish the **source log** with Codex; add sources in the **NotebookLM UI** from that list after class (or mid-class if time).
+- [ ] Whiteboard line: **Skill = reusable instructions. MCP = live tool plug. Today the plug is NotebookLM — volume + citations.**
+- [ ] Say the caps out loud: **15–25 sources, ≥4 types. Stop at the cap.**
 
 ## Open (≤2 min)
 
-“Last time we used *skills* — written instructions the agent reuses. Today we add *MCP*: a plug that lets the agent use a live tool outside the chat. We’ll build one with Codex, connect it, and prove it works.”
+“Last time we used *skills*. Today we use *MCP* to plug Codex into NotebookLM. You’ll pick a topic you care about, gather a lot of mixed sources — not five links — load a notebook, then ask sharp questions and keep only **cited** insights.”
 
-## Plain-language talking points (8–18)
+## Hook (0–8)
 
-- **MCP (plain):** a **plug** that lets the coding agent use a tool or data source outside the chat.
-- **Name once:** MCP = Model Context Protocol (learners do not need the full name to use it).
-- **Skill:** saved recipe of written steps. Good for interviews and briefs.
-- **MCP:** live capability. Good when the agent must **do** something or read changing data.
-- **Rule of thumb:** If the answer can live in a markdown file, start with a skill. If the agent must act on live data or another system, you need a plug.
-- **Safety out loud:** Do not connect personal work email or client data today. Read every permission request. “The agent said it worked” is not proof — open the file.
+Show your pre-built dense notebook. Ask: “What would change if you had 20 sources instead of 5?” One-liner: MCP lets the agent **do** something in NotebookLM, not only write advice.
 
-## Demo idea (18–28)
+## Facilitation map
 
-Drive Codex yourself. Build Sticky Notes MCP. Approve installs. Call `add_note` with a harmless phrase, then `list_notes`. Have learners predict which file changes, then open `notes.json` together.
+| Block | Protect | Tip |
+| --- | --- | --- |
+| Auth/connect | 7 min | If stuck >3 min → recovery prompt “MCP not connected”; keep gathering on track |
+| Topic + plan | ~15 min | Narrow topics; reject “all of AI” |
+| **Gather** | **~25 min** | Biggest chunk. Circulate. Enforce 15–25 and ≥4 types. No notebook yet |
+| Trim | 7 min | Cut junk; keep type mix |
+| Notebook fill | 13 min | MCP add; log failures; UI fallback from the same list |
+| Insights + share | 15 min | Cap at 5–8 questions; insist on citations; one surprising citation aloud |
 
-## Facilitation
+## Timebox tips
 
-- **28–40:** Hand out the three success checks from the README. Each learner picks a theme (work tasks / meal ideas / lesson ideas).
-- **40–70:** Circulate; unblock install/config only; do not hijack keyboards. Point them at [PROMPTS.md](PROMPTS.md) one prompt at a time.
-- **70–82:** Deliberately break one thing (rename a tool or empty/delete `notes.json`). Learners reproduce, write expected vs actual, ask for a minimal fix, recheck.
-- **82–90:** Two learners show one successful tool call. Collect exit sentences.
+- Gathering runs long → paste **Gathering is too slow** recovery (narrow to 15, still ≥4 types).
+- Early finisher → Stretch prompt only (≤25 total); or help a neighbor as observer.
+- Optional Audio Overview in NotebookLM UI only after insight log exists.
+
+## Failure fallbacks
+
+1. **MCP not connected / auth fails:** Use recovery prompt in [PROMPTS.md](PROMPTS.md). Finalize `sources/source-log.md` + draft questions. Add sources in NotebookLM UI from Codex’s list. Still require the brief and human check.
+2. **Source fails to add:** Replace it; do not stop early. Record under “failed”.
+3. **Topic paralysis:** Use **Learner stuck choosing a topic** recovery.
+4. **Agent dumps whole pipeline:** Stop; point at `AGENTS.md` — one step, wait for learner yes.
 
 ## What to watch for
 
-- Learners paste API keys or connect personal Gmail → stop; local Sticky Notes only.
-- Agent “finishes” without a file change → insist they open `notes.json`.
-- Wrong MCP path / not restarted → restart Codex after connect.
-- Early finisher → observer role or stretch `delete_note` / `count_notes`.
-- Claude Code learner → same artifact and checks; different connect UI is fine.
+- Stopping at ~5 sources → push back to the cap/mix.
+- Paywalled/pirated PDFs or client secrets → stop; public/reputable only.
+- “NotebookLM worked” with no counts/citations → not done.
+- Skipping trim or human check → put them back on Steps 4 and 7.
 
-## Debrief
+## Debrief prompts
 
-Ask: “What did MCP give you that a skill alone could not? What did you observe? What remains uncertain?” Collect working MCP (or paper brief), tool-call evidence, and the one-sentence why.
+“What did volume + mix give you that three Google results would not?”  
+“Which insight has the strongest citation? Which is still uncited?”  
+Collect: source-log evidence, notebook counts, insight log, one-page brief.
+
+## Recovery prompts (pocket — full text in PROMPTS.md)
+
+- MCP not connected → finish log + manual NotebookLM path  
+- Gathering too slow → 15 sources, ≥4 types, finish log now  
+- Topic stuck → 5 personal options, learner picks one  

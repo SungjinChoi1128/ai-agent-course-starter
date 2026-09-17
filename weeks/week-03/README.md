@@ -10,7 +10,7 @@ Interview → build → open the result → GitHub. 90 minutes, four learners.
 
 ## Before class
 
-Bring Week 2 Sticky Notes MCP if it still works (optional). Have Deep Interview / classroom interview prompt ready. Each learner picks one small personal utility idea (packing list, reading tracker, habit check-in, lesson planner — not a big product).
+Bring Week 2 NotebookLM artifacts if useful (optional). Have Deep Interview / classroom interview prompt ready. Each learner picks one small personal utility idea (packing list, reading tracker, habit check-in, lesson planner — not a big product).
 
 ## 90-minute agenda
 

@@ -10,7 +10,7 @@ Repeatable run with a stop switch — no duplicate mess. 90 minutes, four learne
 
 ## Before class
 
-Bring a working Week 5/6 piece (Sticky Notes, local report, or read-only digest). Open [templates/automation-contract.md](../../templates/automation-contract.md). Prefer local draft outputs — no auto-send email in class.
+Bring a working Week 5/6 piece (NotebookLM brief, local report, or read-only digest). Open [templates/automation-contract.md](../../templates/automation-contract.md). Prefer local draft outputs — no auto-send email in class.
 
 ## 90-minute agenda
 

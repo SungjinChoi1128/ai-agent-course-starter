@@ -13,7 +13,7 @@ Each week is one end-to-end build with Codex. Introduce a technical term only wh
 | Week | Theme | Leave with |
 | --- | --- | --- |
 | 1 (done) | Agents, skills, Deep Interview, GitHub | Brief + first build |
-| 2 (today) | MCP end-to-end — Sticky Notes with Codex | Working local MCP + proof it was called |
+| 2 (today) | NotebookLM research power session via MCP | 15–25 mixed sources + cited NotebookLM insights |
 | 3 | Ship a small app (interview → build → GitHub) | One personal utility from a deep-interview brief, in GitHub |
 | 4 | Make it trustworthy | Same app with 3 manual checks + one fix from a failed check |
 | 5 | Skill + MCP workflow | Short workflow: skill gathers intent, MCP does the live action |
@@ -25,13 +25,13 @@ Each week is one end-to-end build with Codex. Introduce a technical term only wh
 
 Week 1 (historical): agent mental model, skill as a reusable workflow, guided interview, first build, inspection, light safety, GitHub basics.
 
-Week 2: plain-language MCP vs skill; build Sticky Notes MCP (`list_notes`, `add_note`, `search_notes` → `notes.json`); connect in Codex; prove a tool call; break and fix.
+Week 2: plain-language MCP vs skill; connect NotebookLM MCP; gather **15–25** sources across **≥4 types**; create/fill a notebook; extract **5–8** cited insights; human check; one-page brief.
 
 Week 3: deep-interview a personal utility, build the smallest version, open the result, put it on GitHub (or document what blocked the push).
 
 Week 4: run three manual checks on the Week 3 app; turn one failure into a verified fix.
 
-Week 5: write a short skill that gathers intent, then call the Sticky Notes (or similar) MCP to do the live action.
+Week 5: write a short skill that gathers intent, then call a live MCP (NotebookLM or another approved plug) to do the action.
 
 Week 6: one read-only connection to a real service (calendar / email / drive / local folder) with least access; no write or delete in class.
 
@@ -65,4 +65,4 @@ Use the scale for coaching after W1, W4 and W8. Capstone readiness means no zero
 
 Homework takes 20–30 minutes and asks for one small change or evidence artifact. If access or installation fails, accept a completed paper brief and annotated expected behavior. Begin the next class by pairing the learner with the instructor to restore access.
 
-Missing a week: read that week's README, complete the minimum exercise, and bring the exit artifact. Keep stretch tasks optional. Never require a new paid subscription to complete the course. Prefer local/fake data over risky real logins (especially in Weeks 2–5).
+Missing a week: read that week's README, complete the minimum exercise, and bring the exit artifact. Keep stretch tasks optional. Never require a new paid subscription to complete the course. Prefer public/reputable sources and least access. Week 2 uses personal research topics + NotebookLM — still no client secrets or paywall hacking.
