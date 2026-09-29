@@ -3,58 +3,65 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>MCP &amp; Skills — a simple walkthrough | Week 2</title>
+<title>MCP &amp; Skills — visual walkthrough | Week 2</title>
 <style>
   :root {
-    --bg: #f6f4f1;
+    --bg: #f4f1ec;
     --surface: #ffffff;
-    --ink: #1c2430;
-    --muted: #5a6574;
-    --line: #e4e0d8;
-    --accent: #2f6f5e;
-    --accent-soft: #e7f2ee;
-    --accent-dark: #1f4d41;
-    --warm: #c46b3a;
-    --warm-soft: #f8eee6;
-    --sky: #3a6ea5;
-    --sky-soft: #e8f0f8;
-    --ok: #2f6f5e;
+    --ink: #1a2332;
+    --muted: #5c6675;
+    --line: #e2ddd4;
+    --accent: #2a6b5a;
+    --accent-soft: #e4f1ec;
+    --accent-dark: #1a4a3e;
+    --warm: #c45d2c;
+    --warm-soft: #f9ebe3;
+    --sky: #2f6a9e;
+    --sky-soft: #e6f0f8;
+    --violet: #6b4fa0;
+    --violet-soft: #f0eaf8;
+    --ok: #2a6b5a;
     --warn: #b45309;
-    --shadow: 0 8px 28px rgba(28, 36, 48, 0.08);
-    --radius: 16px;
-    --focus: 0 0 0 3px rgba(47, 111, 94, 0.35);
+    --you: #2f6a9e;
+    --ai: #2a6b5a;
+    --plug: #c45d2c;
+    --app: #6b4fa0;
+    --skill: #b8860b;
+    --shadow: 0 10px 32px rgba(26, 35, 50, 0.08);
+    --radius: 18px;
+    --focus: 0 0 0 3px rgba(42, 107, 90, 0.4);
   }
 
   * { box-sizing: border-box; }
-
   html { scroll-behavior: smooth; }
 
   body {
     margin: 0;
     font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
     background:
-      radial-gradient(1200px 600px at 10% -10%, #e8f2ee 0%, transparent 55%),
-      radial-gradient(900px 500px at 100% 0%, #f8eee6 0%, transparent 50%),
+      radial-gradient(1100px 520px at 8% -8%, #ddeee8 0%, transparent 55%),
+      radial-gradient(900px 480px at 100% 0%, #f7e8de 0%, transparent 50%),
+      radial-gradient(700px 400px at 50% 100%, #e8e4f4 0%, transparent 45%),
       var(--bg);
     color: var(--ink);
     line-height: 1.55;
-    font-size: 18px;
+    font-size: 17px;
     min-height: 100vh;
   }
 
   .wrap {
-    max-width: 880px;
+    max-width: 920px;
     margin: 0 auto;
-    padding: 28px 18px 80px;
+    padding: 24px 16px 72px;
   }
 
   header.hero {
     background: var(--surface);
     border: 1px solid var(--line);
     border-radius: calc(var(--radius) + 4px);
-    padding: 28px 28px 24px;
+    padding: 26px 26px 22px;
     box-shadow: var(--shadow);
-    margin-bottom: 22px;
+    margin-bottom: 18px;
   }
 
   .badge {
@@ -63,17 +70,17 @@
     gap: 8px;
     background: var(--accent-soft);
     color: var(--accent-dark);
-    font-size: 0.82rem;
-    font-weight: 600;
+    font-size: 0.8rem;
+    font-weight: 650;
     letter-spacing: 0.02em;
     padding: 6px 12px;
     border-radius: 999px;
-    margin-bottom: 14px;
+    margin-bottom: 12px;
   }
 
   h1 {
     margin: 0 0 8px;
-    font-size: clamp(1.55rem, 4vw, 2.15rem);
+    font-size: clamp(1.45rem, 4vw, 2rem);
     line-height: 1.2;
     letter-spacing: -0.02em;
   }
@@ -81,32 +88,32 @@
   .subtitle {
     margin: 0;
     color: var(--muted);
-    font-size: 1.05rem;
+    font-size: 1.02rem;
   }
 
-  /* Progress stepper */
   .stepper {
     display: flex;
-    gap: 6px;
+    gap: 5px;
     overflow-x: auto;
-    padding: 4px 2px 14px;
-    margin-bottom: 8px;
+    padding: 4px 2px 12px;
+    margin-bottom: 6px;
     scrollbar-width: thin;
   }
 
   .step-dot {
     flex: 1 0 auto;
-    min-width: 92px;
+    min-width: 78px;
     border: 1px solid var(--line);
     background: var(--surface);
     color: var(--muted);
     border-radius: 999px;
-    padding: 8px 12px;
-    font-size: 0.78rem;
-    font-weight: 600;
+    padding: 7px 10px;
+    font-size: 0.72rem;
+    font-weight: 650;
     cursor: pointer;
-    transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.15s;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
     text-align: center;
+    white-space: nowrap;
   }
 
   .step-dot:hover { border-color: var(--accent); color: var(--accent-dark); }
@@ -118,7 +125,7 @@
   }
   .step-dot.done {
     background: var(--accent-soft);
-    border-color: #b7d5cb;
+    border-color: #b5d4c9;
     color: var(--accent-dark);
   }
 
@@ -127,8 +134,8 @@
     border: 1px solid var(--line);
     border-radius: var(--radius);
     box-shadow: var(--shadow);
-    padding: 28px 26px;
-    min-height: 420px;
+    padding: 26px 24px;
+    min-height: 460px;
     animation: fadeIn 0.28s ease;
   }
 
@@ -138,126 +145,259 @@
   }
 
   .panel h2 {
-    margin: 0 0 14px;
-    font-size: clamp(1.25rem, 3vw, 1.55rem);
+    margin: 0 0 12px;
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
     letter-spacing: -0.015em;
   }
 
-  .panel p { margin: 0 0 14px; color: var(--ink); }
-  .panel p.lead { font-size: 1.08rem; }
+  .panel p { margin: 0 0 12px; }
+  .panel p.lead { font-size: 1.06rem; }
 
   .callout {
     background: var(--accent-soft);
     border-left: 4px solid var(--accent);
     border-radius: 10px;
-    padding: 14px 16px;
-    margin: 16px 0;
+    padding: 13px 15px;
+    margin: 14px 0;
   }
-
-  .callout.warm {
-    background: var(--warm-soft);
-    border-left-color: var(--warm);
-  }
-
-  .callout.sky {
-    background: var(--sky-soft);
-    border-left-color: var(--sky);
-  }
-
+  .callout.warm { background: var(--warm-soft); border-left-color: var(--warm); }
+  .callout.sky { background: var(--sky-soft); border-left-color: var(--sky); }
+  .callout.violet { background: var(--violet-soft); border-left-color: var(--violet); }
   .callout strong { color: var(--accent-dark); }
-  .callout.warm strong { color: #8a3d16; }
-  .callout.sky strong { color: #234e78; }
+  .callout.warm strong { color: #8a3a12; }
+  .callout.sky strong { color: #1f4d78; }
+  .callout.violet strong { color: #4a3470; }
 
-  .metaphor {
-    display: grid;
-    grid-template-columns: 64px 1fr;
-    gap: 14px;
-    align-items: start;
-    background: linear-gradient(135deg, #e7f2ee, #f8eee6);
-    border-radius: 14px;
-    padding: 18px;
-    margin: 18px 0;
+  /* ===== FLOW DIAGRAM ===== */
+  .flow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 6px 4px;
+    padding: 18px 10px;
+    margin: 14px 0;
+    background: linear-gradient(180deg, #faf9f6 0%, #f3f0ea 100%);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    position: relative;
+    overflow: hidden;
   }
 
-  .metaphor-icon {
+  .flow-node {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    min-width: 72px;
+    z-index: 1;
+  }
+
+  .flow-bubble {
     width: 64px;
     height: 64px;
-    border-radius: 16px;
-    background: #fff;
+    border-radius: 18px;
     display: grid;
     place-items: center;
-    font-size: 1.8rem;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    font-size: 1.55rem;
+    background: #fff;
+    border: 2.5px solid var(--line);
+    box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+    transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
   }
 
+  .flow-bubble.you { border-color: var(--you); }
+  .flow-bubble.ai { border-color: var(--ai); background: var(--accent-soft); }
+  .flow-bubble.plug {
+    border-color: var(--plug);
+    background: var(--warm-soft);
+    border-radius: 50%;
+    width: 56px;
+    height: 56px;
+    font-size: 1.3rem;
+  }
+  .flow-bubble.app { border-color: var(--app); background: var(--violet-soft); }
+  .flow-bubble.skill-note {
+    border-color: var(--skill);
+    background: #fff8e6;
+    border-radius: 4px 12px 12px 12px;
+    transform: rotate(-3deg);
+    width: 52px;
+    height: 52px;
+    font-size: 1.2rem;
+  }
+
+  .flow-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--muted);
+    text-align: center;
+    max-width: 80px;
+    line-height: 1.25;
+  }
+
+  .flow-arrow {
+    display: flex;
+    align-items: center;
+    color: #b0a89c;
+    font-size: 1.2rem;
+    padding: 0 2px;
+    position: relative;
+    height: 64px;
+  }
+
+  .flow-arrow .pulse-dot {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+    opacity: 0;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+  }
+
+  .flow.animating .pulse-dot {
+    animation: travel 1.8s ease-in-out infinite;
+  }
+
+  @keyframes travel {
+    0% { left: 0; opacity: 0; }
+    15% { opacity: 1; }
+    85% { opacity: 1; }
+    100% { left: calc(100% - 8px); opacity: 0; }
+  }
+
+  .flow.animating .flow-bubble.lit {
+    box-shadow: 0 0 0 4px rgba(42, 107, 90, 0.25), 0 6px 18px rgba(0,0,0,0.08);
+    transform: scale(1.06);
+  }
+
+  .flow-apps {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .flow-apps .mini-app {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: #fff;
+    border: 1.5px solid var(--line);
+    border-radius: 10px;
+    padding: 5px 10px;
+    font-size: 0.78rem;
+    font-weight: 650;
+    color: var(--ink);
+    transition: border-color 0.3s, background 0.3s, box-shadow 0.3s;
+  }
+
+  .flow-apps .mini-app.lit {
+    border-color: var(--app);
+    background: var(--violet-soft);
+    box-shadow: 0 0 0 3px rgba(107, 79, 160, 0.2);
+  }
+
+  .ai-with-skill {
+    position: relative;
+  }
+
+  .ai-with-skill .skill-sticky {
+    position: absolute;
+    top: -10px;
+    right: -18px;
+    width: 36px;
+    height: 36px;
+    background: #fff3c4;
+    border: 1.5px solid #e0c35a;
+    border-radius: 3px 10px 10px 10px;
+    display: grid;
+    place-items: center;
+    font-size: 0.85rem;
+    box-shadow: 1px 2px 6px rgba(0,0,0,0.08);
+    transform: rotate(8deg);
+    z-index: 2;
+  }
+
+  /* Steps list for flow story */
+  .flow-story {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 10px;
+    margin: 14px 0;
+  }
+
+  .flow-step {
+    background: #fafaf8;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 12px 14px;
+    counter-increment: fs;
+  }
+
+  .flow-step .n {
+    display: inline-flex;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    align-items: center;
+    justify-content: center;
+    margin-right: 6px;
+  }
+
+  .flow-step p {
+    margin: 6px 0 0;
+    font-size: 0.9rem;
+    color: var(--muted);
+  }
+
+  .play-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: none;
+    background: var(--accent);
+    color: #fff;
+    font-family: inherit;
+    font-weight: 650;
+    font-size: 0.95rem;
+    padding: 10px 18px;
+    border-radius: 999px;
+    cursor: pointer;
+    margin: 8px 0 4px;
+  }
+  .play-btn:hover { background: var(--accent-dark); }
+  .play-btn:focus-visible { outline: none; box-shadow: var(--focus); }
+
+  /* Cards */
   .cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     gap: 12px;
-    margin: 16px 0;
+    margin: 14px 0;
   }
 
   .card {
     border: 1px solid var(--line);
     border-radius: 12px;
-    padding: 14px 16px;
+    padding: 14px 15px;
     background: #fafaf8;
   }
+  .card h3 { margin: 0 0 6px; font-size: 0.98rem; }
+  .card p { margin: 0; font-size: 0.92rem; color: var(--muted); }
 
-  .card h3 {
-    margin: 0 0 6px;
-    font-size: 1rem;
-  }
-
-  .card p {
-    margin: 0;
-    font-size: 0.95rem;
-    color: var(--muted);
-  }
-
-  .emoji {
-    display: inline-block;
-    margin-right: 4px;
-  }
-
-  /* Comparison toggle */
-  .compare-toggle {
-    display: flex;
-    gap: 8px;
-    margin: 12px 0 18px;
-    background: #f0eeea;
-    padding: 6px;
-    border-radius: 999px;
-    width: fit-content;
-    max-width: 100%;
-  }
-
-  .compare-toggle button {
-    border: none;
-    background: transparent;
-    padding: 10px 18px;
-    border-radius: 999px;
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: var(--muted);
-    cursor: pointer;
-    transition: background 0.2s, color 0.2s;
-  }
-
-  .compare-toggle button.active {
-    background: #fff;
-    color: var(--accent-dark);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-  }
-
-  .compare-toggle button:focus-visible { outline: none; box-shadow: var(--focus); }
-
+  /* Compare */
   .compare-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1.2fr 0.9fr;
     gap: 14px;
   }
-
   @media (max-width: 640px) {
     .compare-grid { grid-template-columns: 1fr; }
   }
@@ -265,159 +405,232 @@
   .compare-col {
     border: 1px solid var(--line);
     border-radius: 14px;
-    padding: 18px;
+    padding: 16px;
     background: #fafaf8;
-    transition: opacity 0.25s, transform 0.25s;
   }
-
-  .compare-col.dim {
-    opacity: 0.45;
-    transform: scale(0.98);
+  .compare-col.star {
+    background: linear-gradient(160deg, #e4f1ec, #fafaf8);
+    border-color: #b5d4c9;
   }
+  .compare-col h3 { margin: 0 0 8px; font-size: 1.05rem; }
+  .compare-col ul { margin: 0; padding-left: 1.1rem; color: var(--muted); }
+  .compare-col li { margin-bottom: 7px; }
 
-  .compare-col h3 {
-    margin: 0 0 10px;
-    font-size: 1.1rem;
+  /* Example panels */
+  .ex-hero {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    background: linear-gradient(135deg, var(--sky-soft), #fafaf8);
+    border-radius: 14px;
+    padding: 16px;
+    margin: 12px 0;
+    border: 1px solid #d0e0ef;
   }
-
-  .compare-col ul {
-    margin: 0;
-    padding-left: 1.1rem;
-    color: var(--muted);
+  .ex-hero.warm-bg {
+    background: linear-gradient(135deg, var(--warm-soft), #fafaf8);
+    border-color: #e8c8b0;
   }
-
-  .compare-col li { margin-bottom: 8px; }
-
-  /* Quiz */
-  .quiz-q {
-    font-weight: 600;
-    margin-bottom: 12px;
-    font-size: 1.05rem;
+  .ex-hero.violet-bg {
+    background: linear-gradient(135deg, var(--violet-soft), #fafaf8);
+    border-color: #d4c8e8;
   }
-
-  .quiz-options {
+  .ex-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    background: #fff;
     display: grid;
+    place-items: center;
+    font-size: 1.6rem;
+    flex-shrink: 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  }
+  .ex-hero h3 { margin: 0 0 4px; font-size: 1.1rem; }
+  .ex-hero p { margin: 0; color: var(--muted); font-size: 0.95rem; }
+
+  .steps-ol {
+    margin: 12px 0;
+    padding: 0;
+    list-style: none;
+    counter-reset: ol;
+  }
+  .steps-ol li {
+    counter-increment: ol;
+    display: grid;
+    grid-template-columns: 32px 1fr;
     gap: 10px;
-    margin-bottom: 14px;
+    margin-bottom: 10px;
+    align-items: start;
+  }
+  .steps-ol li::before {
+    content: counter(ol);
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--accent-soft);
+    color: var(--accent-dark);
+    font-weight: 700;
+    font-size: 0.85rem;
+    display: grid;
+    place-items: center;
   }
 
-  .quiz-options button {
+  .chat-demo {
+    background: #1a2332;
+    color: #e8ecef;
+    border-radius: 14px;
+    padding: 14px 16px;
+    margin: 12px 0;
+    font-size: 0.92rem;
+    line-height: 1.5;
+  }
+  .chat-demo .you-line { color: #9ec5e8; margin-bottom: 8px; }
+  .chat-demo .ai-line { color: #a8d5c4; }
+  .chat-demo .tool-line {
+    color: #f0c080;
+    font-size: 0.85rem;
+    margin: 6px 0;
+    padding-left: 12px;
+    border-left: 2px solid #f0c080;
+  }
+
+  /* Scenario picker */
+  .scenario-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+    margin: 14px 0;
+  }
+
+  .scenario-btn {
     text-align: left;
     border: 1.5px solid var(--line);
     background: #fff;
     border-radius: 12px;
-    padding: 14px 16px;
-    font-size: 1rem;
-    cursor: pointer;
-    color: var(--ink);
-    transition: border-color 0.15s, background 0.15s;
+    padding: 14px;
     font-family: inherit;
+    font-size: 0.92rem;
+    color: var(--ink);
+    cursor: pointer;
+    transition: border-color 0.15s, background 0.15s, box-shadow 0.15s;
   }
-
-  .quiz-options button:hover:not(:disabled) {
+  .scenario-btn:hover { border-color: var(--accent); background: var(--accent-soft); }
+  .scenario-btn:focus-visible { outline: none; box-shadow: var(--focus); }
+  .scenario-btn.active {
     border-color: var(--accent);
     background: var(--accent-soft);
+    box-shadow: 0 0 0 2px rgba(42, 107, 90, 0.2);
   }
+  .scenario-btn strong { display: block; margin-bottom: 4px; font-size: 0.95rem; }
+  .scenario-btn span { color: var(--muted); font-size: 0.85rem; }
 
-  .quiz-options button:focus-visible { outline: none; box-shadow: var(--focus); }
-
-  .quiz-options button.correct {
-    border-color: var(--ok);
-    background: var(--accent-soft);
-  }
-
-  .quiz-options button.wrong {
-    border-color: #c45c5c;
-    background: #fceded;
-  }
-
-  .quiz-options button:disabled { cursor: default; }
-
-  .feedback {
-    display: none;
-    border-radius: 12px;
-    padding: 14px 16px;
-    margin-bottom: 14px;
-  }
-
-  .feedback.show { display: block; animation: fadeIn 0.25s ease; }
-  .feedback.ok { background: var(--accent-soft); border: 1px solid #b7d5cb; }
-  .feedback.no { background: #fceded; border: 1px solid #e8b4b4; }
-
-  .quiz-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px;
-    flex-wrap: wrap;
-  }
-
-  .quiz-progress {
-    font-size: 0.9rem;
-    color: var(--muted);
-    font-weight: 600;
-  }
-
-  /* Safe use list */
-  .split {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 14px;
-  }
-
-  @media (max-width: 640px) {
-    .split { grid-template-columns: 1fr; }
-  }
-
-  .safe-box {
-    border-radius: 14px;
+  .path-board {
+    margin-top: 16px;
     padding: 16px;
-    border: 1px solid var(--line);
-  }
-
-  .safe-box.ok { background: var(--accent-soft); border-color: #b7d5cb; }
-  .safe-box.warn { background: var(--warm-soft); border-color: #e8c4a8; }
-
-  .safe-box h3 { margin: 0 0 10px; font-size: 1.05rem; }
-  .safe-box ul { margin: 0; padding-left: 1.15rem; color: var(--muted); }
-  .safe-box li { margin-bottom: 6px; }
-
-  /* Examples */
-  .example {
-    border: 1px solid var(--line);
+    background: #f7f5f1;
     border-radius: 14px;
-    padding: 16px 18px;
-    margin-bottom: 12px;
-    background: #fafaf8;
+    border: 1px solid var(--line);
   }
 
-  .example h3 {
-    margin: 0 0 6px;
-    font-size: 1.05rem;
-  }
-
-  .example .tag {
+  .path-board .result-tag {
     display: inline-block;
-    font-size: 0.75rem;
+    font-size: 0.78rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.04em;
-    padding: 3px 8px;
+    padding: 4px 10px;
     border-radius: 6px;
-    margin-right: 6px;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
+  }
+  .tag-chat { background: #eee; color: #555; }
+  .tag-mcp { background: var(--sky-soft); color: #1f4d78; }
+  .tag-skill { background: #fff3c4; color: #7a5c00; }
+  .tag-custom { background: var(--violet-soft); color: #4a3470; }
+
+  .path-explain {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.95rem;
   }
 
-  .tag.mcp { background: var(--sky-soft); color: #234e78; }
-  .tag.skill { background: var(--warm-soft); color: #8a3d16; }
-  .tag.both { background: var(--accent-soft); color: var(--accent-dark); }
+  /* Lighting states for path board diagram */
+  .path-flow .flow-bubble { opacity: 0.35; transition: opacity 0.35s, box-shadow 0.35s, transform 0.35s, border-color 0.35s; }
+  .path-flow .flow-arrow { opacity: 0.25; transition: opacity 0.35s; }
+  .path-flow .mini-app { opacity: 0.35; transition: opacity 0.35s, border-color 0.35s, background 0.35s; }
+  .path-flow .skill-sticky { opacity: 0.2; transition: opacity 0.35s, transform 0.35s; }
+  .path-flow .custom-plug { opacity: 0.35; }
 
-  /* Nav footer */
+  .path-flow.show-chat .node-you .flow-bubble,
+  .path-flow.show-chat .node-ai .flow-bubble { opacity: 1; transform: scale(1.05); }
+  .path-flow.show-chat .arrow-you-ai { opacity: 1; }
+
+  .path-flow.show-mcp .node-you .flow-bubble,
+  .path-flow.show-mcp .node-ai .flow-bubble,
+  .path-flow.show-mcp .node-plug .flow-bubble,
+  .path-flow.show-mcp .mini-app.target { opacity: 1; }
+  .path-flow.show-mcp .node-you .flow-bubble,
+  .path-flow.show-mcp .node-ai .flow-bubble,
+  .path-flow.show-mcp .node-plug .flow-bubble { transform: scale(1.05); box-shadow: 0 0 0 4px rgba(42, 107, 90, 0.2); }
+  .path-flow.show-mcp .arrow-you-ai,
+  .path-flow.show-mcp .arrow-ai-plug,
+  .path-flow.show-mcp .arrow-plug-app { opacity: 1; }
+  .path-flow.show-mcp .mini-app.target {
+    border-color: var(--app);
+    background: var(--violet-soft);
+    box-shadow: 0 0 0 3px rgba(107, 79, 160, 0.2);
+  }
+
+  .path-flow.show-skill .node-you .flow-bubble,
+  .path-flow.show-skill .node-ai .flow-bubble { opacity: 1; transform: scale(1.05); }
+  .path-flow.show-skill .arrow-you-ai { opacity: 1; }
+  .path-flow.show-skill .skill-sticky {
+    opacity: 1;
+    transform: rotate(8deg) scale(1.15);
+    box-shadow: 0 0 0 3px rgba(184, 134, 11, 0.35);
+  }
+
+  .path-flow.show-custom .node-you .flow-bubble,
+  .path-flow.show-custom .node-ai .flow-bubble,
+  .path-flow.show-custom .node-custom .flow-bubble { opacity: 1; transform: scale(1.05); box-shadow: 0 0 0 4px rgba(107, 79, 160, 0.25); }
+  .path-flow.show-custom .arrow-you-ai,
+  .path-flow.show-custom .arrow-ai-custom { opacity: 1; }
+
+  /* Safe */
+  .split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  @media (max-width: 640px) {
+    .split { grid-template-columns: 1fr; }
+  }
+  .safe-box {
+    border-radius: 14px;
+    padding: 15px;
+    border: 1px solid var(--line);
+  }
+  .safe-box.ok { background: var(--accent-soft); border-color: #b5d4c9; }
+  .safe-box.warn { background: var(--warm-soft); border-color: #e8c4a8; }
+  .safe-box h3 { margin: 0 0 8px; font-size: 1rem; }
+  .safe-box ul { margin: 0; padding-left: 1.1rem; color: var(--muted); }
+  .safe-box li { margin-bottom: 5px; }
+
+  .one-liner {
+    background: #fff;
+    border: 2px dashed #b5d4c9;
+    border-radius: 14px;
+    padding: 15px;
+    margin-top: 12px;
+  }
+  .one-liner p { margin: 0 0 6px; }
+  .one-liner p:last-child { margin: 0; }
+
   .nav {
     display: flex;
     justify-content: space-between;
     gap: 12px;
-    margin-top: 20px;
+    margin-top: 18px;
     flex-wrap: wrap;
   }
 
@@ -430,73 +643,80 @@
     font-weight: 650;
     font-family: inherit;
     cursor: pointer;
-    transition: transform 0.12s, background 0.15s, box-shadow 0.15s;
+    transition: transform 0.12s, background 0.15s;
   }
-
   .btn:active { transform: translateY(1px); }
   .btn:focus-visible { outline: none; box-shadow: var(--focus); }
-
-  .btn-primary {
-    background: var(--accent);
-    color: #fff;
-  }
+  .btn-primary { background: var(--accent); color: #fff; }
   .btn-primary:hover { background: var(--accent-dark); }
-
   .btn-secondary {
     background: #fff;
     color: var(--ink);
     border: 1.5px solid var(--line);
   }
   .btn-secondary:hover { border-color: var(--accent); color: var(--accent-dark); }
-
-  .btn:disabled {
-    opacity: 0.45;
-    cursor: not-allowed;
-    transform: none;
-  }
+  .btn:disabled { opacity: 0.45; cursor: not-allowed; transform: none; }
 
   .footer-note {
     text-align: center;
     color: var(--muted);
-    font-size: 0.88rem;
-    margin-top: 22px;
+    font-size: 0.85rem;
+    margin-top: 20px;
   }
 
-  .one-liner {
+  .vs-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: 12px 0;
+  }
+  .vs-pill {
+    flex: 1;
+    min-width: 140px;
     background: #fff;
-    border: 2px dashed #b7d5cb;
-    border-radius: 14px;
-    padding: 16px;
-    margin-top: 12px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 12px;
+    text-align: center;
   }
+  .vs-pill .big { font-size: 1.4rem; display: block; margin-bottom: 4px; }
+  .vs-pill strong { display: block; margin-bottom: 2px; }
+  .vs-pill span { font-size: 0.85rem; color: var(--muted); }
 
-  .one-liner p { margin: 0 0 8px; }
-  .one-liner p:last-child { margin: 0; }
-
-  .sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0,0,0,0);
-    border: 0;
+  .action-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 10px 0;
   }
+  .chip {
+    background: #fff;
+    border: 1.5px solid var(--line);
+    border-radius: 999px;
+    padding: 6px 12px;
+    font-size: 0.85rem;
+    font-weight: 650;
+  }
+  .chip.plug-chip { border-color: var(--plug); background: var(--warm-soft); color: #8a3a12; }
+  .chip.skill-chip { border-color: #e0c35a; background: #fff8e6; color: #7a5c00; }
 
-  .hidden { display: none !important; }
+  @media (max-width: 560px) {
+    .flow-bubble { width: 52px; height: 52px; font-size: 1.25rem; }
+    .flow-bubble.plug { width: 46px; height: 46px; }
+    .flow-label { font-size: 0.68rem; max-width: 64px; }
+    .panel { padding: 20px 16px; min-height: 380px; }
+  }
 </style>
 </head>
 <body>
   <div class="wrap">
     <header class="hero">
       <div class="badge">Sungjin's AI Lessons · Week 2</div>
-      <h1>MCP &amp; Skills — a simple walkthrough</h1>
-      <p class="subtitle">Learn how your AI assistant can use your tools — and follow your playbooks — without drowning in jargon.</p>
+      <h1>MCP &amp; Skills — see how they plug in</h1>
+      <p class="subtitle">A visual walkthrough: how your AI reaches apps (MCP), how recipes stick to the assistant (Skills), and three real examples — including NotebookLM.</p>
     </header>
 
     <nav class="stepper" id="stepper" aria-label="Lesson steps" role="tablist"></nav>
-
     <main id="panel" class="panel" role="tabpanel" aria-live="polite"></main>
 
     <div class="nav">
@@ -504,7 +724,7 @@
       <button type="button" class="btn btn-primary" id="btnNext">Next →</button>
     </div>
 
-    <p class="footer-note">Offline-friendly · Press ← → or use the buttons · Designed for non-technical professionals</p>
+    <p class="footer-note">Offline-friendly · Press ← → · USB/plug metaphor throughout · Safe for non-technical pros</p>
   </div>
 
 <script>
@@ -513,77 +733,438 @@
 
   const steps = [
     { id: "problem", label: "1. Problem" },
-    { id: "mcp", label: "2. MCP" },
-    { id: "connector", label: "3. Connectors" },
-    { id: "skill", label: "4. Skills" },
-    { id: "compare", label: "5. Compare" },
-    { id: "quiz", label: "6. Mini quiz" },
-    { id: "safe", label: "7. Safe use" },
-    { id: "week", label: "8. This week" }
+    { id: "mcp", label: "2. MCP plug" },
+    { id: "skill", label: "3. Skills" },
+    { id: "compare", label: "4. Contrast" },
+    { id: "ex1", label: "5. NotebookLM" },
+    { id: "ex2", label: "6. Everyday" },
+    { id: "ex3", label: "7. Custom" },
+    { id: "paths", label: "8. Try paths" },
+    { id: "safe", label: "9. Safe use" },
+    { id: "week", label: "10. This week" }
   ];
 
   let current = 0;
-  let compareMode = "both"; // mcp | skill | both
-  let quizIndex = 0;
-  let quizAnswered = false;
+  let selectedScenario = null;
+  let flowPlaying = false;
 
-  const quiz = [
-    {
-      ask: "You say: “Summarize this email thread I pasted into the chat.”",
-      options: [
-        { label: "Needs MCP (a connector)", correct: false },
-        { label: "Needs a Skill", correct: false },
-        { label: "Needs both MCP and a Skill", correct: false },
-        { label: "Neither — plain chat is enough", correct: true }
-      ],
-      why: "The email text is already in the conversation. The assistant can read and summarize it with no connector and no saved playbook."
+  const scenarios = {
+    chat: {
+      tag: "tag-chat",
+      label: "Chat only",
+      path: "show-chat",
+      explain: "The text is already in the conversation. No plug needed — the assistant just reads and replies."
     },
-    {
-      ask: "You say: “Check my calendar for tomorrow and list free slots.”",
-      options: [
-        { label: "Needs MCP (a calendar connector)", correct: true },
-        { label: "Needs a Skill only", correct: false },
-        { label: "Needs both MCP and a Skill", correct: false },
-        { label: "Neither — plain chat is enough", correct: false }
-      ],
-      why: "Your calendar lives outside the chat. MCP (a connector) is how the assistant reaches it. A Skill is optional polish, not required for a one-off ask."
+    mcp: {
+      tag: "tag-mcp",
+      label: "Existing MCP",
+      path: "show-mcp",
+      explain: "Your calendar (or NotebookLM, Mail…) lives outside the chat. The assistant uses the MCP plug to reach that app, then brings the answer back.",
+      appTarget: "cal"
     },
-    {
-      ask: "You say: “Every Monday, draft my weekly status update the same way — using this outline and tone.”",
-      options: [
-        { label: "Needs MCP only", correct: false },
-        { label: "Needs a Skill (a saved recipe)", correct: true },
-        { label: "Needs both MCP and a Skill", correct: false },
-        { label: "Neither", correct: false }
-      ],
-      why: "You’re describing a reusable process. A Skill is the saved playbook so you don’t re-explain it every time. (If the status pulls live data from email or docs, you’d add MCP too — but the core ask here is the recipe.)"
+    skill: {
+      tag: "tag-skill",
+      label: "Skill (recipe)",
+      path: "show-skill",
+      explain: "You’re repeating a process. The sticky-note Skill sits on the assistant — same outline and tone every Monday. No new app plug required."
     },
-    {
-      ask: "You say: “Find last week’s project notes in Drive, then write a client update in our house style.”",
-      options: [
-        { label: "Needs MCP only", correct: false },
-        { label: "Needs a Skill only", correct: false },
-        { label: "Needs both MCP and a Skill", correct: true },
-        { label: "Neither", correct: false }
-      ],
-      why: "MCP reaches Drive to fetch the notes. A Skill (house style / update template) keeps the writing consistent every time."
-    },
-    {
-      ask: "You say: “Send this apology email to the client now.”",
-      options: [
-        { label: "Needs MCP — and your OK before sending", correct: true },
-        { label: "Needs a Skill only", correct: false },
-        { label: "Neither — chat can send email by itself", correct: false },
-        { label: "Just type “send” and it always goes", correct: false }
-      ],
-      why: "Sending mail needs an email connector (MCP). Because sending is irreversible, good assistants ask for your approval first — don’t treat “send” as automatic."
+    custom: {
+      tag: "tag-custom",
+      label: "Custom MCP",
+      path: "show-custom",
+      explain: "There’s no ready-made app for your team sticky notes. You (or a helper) expose a tiny custom plug with a few actions the assistant can call."
     }
-  ];
+  };
 
   const stepperEl = document.getElementById("stepper");
   const panelEl = document.getElementById("panel");
   const btnBack = document.getElementById("btnBack");
   const btnNext = document.getElementById("btnNext");
+
+  function mcpFlowHTML(opts) {
+    opts = opts || {};
+    const anim = opts.animating ? " animating" : "";
+    const extraClass = opts.extraClass || "";
+    const showSkill = opts.showSkill;
+    const showCustom = opts.showCustom;
+    const apps = opts.apps !== false;
+    return `
+      <div class="flow${anim} ${extraClass}" id="mainFlow" aria-hidden="true">
+        <div class="flow-node node-you">
+          <div class="flow-bubble you">👤</div>
+          <div class="flow-label">You</div>
+        </div>
+        <div class="flow-arrow arrow-you-ai">→<span class="pulse-dot"></span></div>
+        <div class="flow-node node-ai ai-with-skill">
+          <div class="flow-bubble ai">🤖</div>
+          ${showSkill ? '<div class="skill-sticky" title="Skill">📋</div>' : ""}
+          <div class="flow-label">AI assistant</div>
+        </div>
+        <div class="flow-arrow arrow-ai-plug">→<span class="pulse-dot" style="animation-delay:0.35s"></span></div>
+        <div class="flow-node node-plug">
+          <div class="flow-bubble plug">🔌</div>
+          <div class="flow-label">MCP plug</div>
+        </div>
+        <div class="flow-arrow arrow-plug-app">→<span class="pulse-dot" style="animation-delay:0.7s"></span></div>
+        ${apps ? `
+        <div class="flow-apps" id="flowApps">
+          <div class="mini-app" data-app="nlm">📓 NotebookLM</div>
+          <div class="mini-app" data-app="mail">✉️ Mail</div>
+          <div class="mini-app" data-app="cal">📅 Calendar</div>
+          <div class="mini-app" data-app="files">📁 Files</div>
+        </div>` : ""}
+        ${showCustom ? `
+        <div class="flow-node node-custom">
+          <div class="flow-bubble app custom-plug">📝</div>
+          <div class="flow-label">Your sticky notes</div>
+        </div>
+        <div class="flow-arrow arrow-ai-custom" style="display:none"></div>
+        ` : ""}
+      </div>
+    `;
+  }
+
+  function pathBoardHTML() {
+    return `
+      <div class="path-board">
+        <div id="pathResult" style="min-height:28px"></div>
+        <div class="flow path-flow" id="pathFlow" aria-hidden="true">
+          <div class="flow-node node-you">
+            <div class="flow-bubble you">👤</div>
+            <div class="flow-label">You</div>
+          </div>
+          <div class="flow-arrow arrow-you-ai">→</div>
+          <div class="flow-node node-ai ai-with-skill">
+            <div class="flow-bubble ai">🤖</div>
+            <div class="skill-sticky" title="Skill sticky note">📋</div>
+            <div class="flow-label">AI assistant</div>
+          </div>
+          <div class="flow-arrow arrow-ai-plug">→</div>
+          <div class="flow-node node-plug">
+            <div class="flow-bubble plug">🔌</div>
+            <div class="flow-label">MCP plug</div>
+          </div>
+          <div class="flow-arrow arrow-plug-app">→</div>
+          <div class="flow-apps">
+            <div class="mini-app" data-app="nlm">📓 NotebookLM</div>
+            <div class="mini-app target" data-app="cal">📅 Calendar</div>
+            <div class="mini-app" data-app="mail">✉️ Mail</div>
+          </div>
+          <div class="flow-arrow arrow-ai-custom">→</div>
+          <div class="flow-node node-custom">
+            <div class="flow-bubble app custom-plug">📝</div>
+            <div class="flow-label">Custom tool</div>
+          </div>
+        </div>
+        <p class="path-explain" id="pathExplain" style="margin-top:12px">Tap a scenario above — the matching path lights up.</p>
+      </div>
+    `;
+  }
+
+  function contentFor(id) {
+    switch (id) {
+      case "problem":
+        return `
+          <h2>Chat is smart — but stuck in the window</h2>
+          <p class="lead">An AI that only chats is like a brilliant friend on the phone: great advice, but they can’t open your fridge, check your calendar, or pull sources into NotebookLM.</p>
+          <div class="vs-row">
+            <div class="vs-pill">
+              <span class="big">💬</span>
+              <strong>Chat only</strong>
+              <span>Reads what you paste. Writes drafts. Stops at the edge of the chat.</span>
+            </div>
+            <div class="vs-pill">
+              <span class="big">🔌</span>
+              <strong>Chat + plugs</strong>
+              <span>Can reach apps you allow — and follow your usual playbooks.</span>
+            </div>
+          </div>
+          <div class="callout">
+            <strong>This week’s idea:</strong> Give the assistant a <em>USB-style plug</em> into real tools (especially NotebookLM), plus optional sticky-note recipes for work you repeat.
+          </div>
+          <p style="margin:0;color:var(--muted)">Two ingredients: <strong>MCP</strong> (the plug) and <strong>Skills</strong> (the sticky-note recipe). MCP is the star of this walkthrough.</p>
+        `;
+
+      case "mcp":
+        return `
+          <h2>MCP = the USB plug for your AI</h2>
+          <div class="callout">
+            <strong>Model Context Protocol (MCP)</strong> is a standard plug shape. Once an app speaks MCP, your assistant can “plug in” and use that app’s buttons — instead of only chatting.
+          </div>
+          ${mcpFlowHTML({ animating: false })}
+          <button type="button" class="play-btn" id="playFlow">▶ Watch the flow</button>
+          <div class="flow-story">
+            <div class="flow-step"><span class="n">1</span><strong>You ask</strong><p>“What’s free tomorrow?” or “Add these sources to my notebook.”</p></div>
+            <div class="flow-step"><span class="n">2</span><strong>Assistant chooses a tool</strong><p>It picks the right button on the MCP plug.</p></div>
+            <div class="flow-step"><span class="n">3</span><strong>App does the work</strong><p>Calendar, NotebookLM, Mail… runs the action.</p></div>
+            <div class="flow-step"><span class="n">4</span><strong>Result comes back</strong><p>You see the answer in chat — with your permission for big moves.</p></div>
+          </div>
+          <div class="callout warm">
+            <strong>Stick with the metaphor:</strong> MCP is the <em>plug</em>. Each connected app is a device on the other end. No plug → the assistant can only talk about the device, not use it.
+          </div>
+        `;
+
+      case "skill":
+        return `
+          <h2>A Skill is a sticky note on the assistant</h2>
+          <p class="lead">Skills are <strong>not</strong> another plug. They’re a recipe card that sits <em>on</em> the assistant — how to do a repeatable task your way.</p>
+          <div class="flow" aria-hidden="true">
+            <div class="flow-node">
+              <div class="flow-bubble you">👤</div>
+              <div class="flow-label">You</div>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-node ai-with-skill">
+              <div class="flow-bubble ai">🤖</div>
+              <div class="skill-sticky">📋</div>
+              <div class="flow-label">AI + Skill</div>
+            </div>
+            <div class="flow-arrow" style="opacity:0.35">⇢</div>
+            <div class="flow-node" style="opacity:0.4">
+              <div class="flow-bubble plug">🔌</div>
+              <div class="flow-label">MCP (optional)</div>
+            </div>
+          </div>
+          <div class="cards">
+            <div class="card">
+              <h3>📋 Recipe, not remote</h3>
+              <p>“Monday status = Wins / Blockers / Next — friendly, short.” Written once, reused forever.</p>
+            </div>
+            <div class="card">
+              <h3>Your standards</h3>
+              <p>Tone, outline, and “don’t forget” checks stay consistent.</p>
+            </div>
+            <div class="card">
+              <h3>Can use plugs</h3>
+              <p>A Skill may call MCP tools — or work from text you paste. Different jobs.</p>
+            </div>
+          </div>
+          <div class="callout sky">
+            <strong>Picture it:</strong> The USB plug (MCP) reaches the fridge. The sticky note (Skill) says how you like the sandwich made.
+          </div>
+        `;
+
+      case "compare":
+        return `
+          <h2>Short contrast — MCP is the star</h2>
+          <p class="lead">Same kitchen, different jobs. Remember the plug vs the sticky note.</p>
+          <div class="compare-grid">
+            <div class="compare-col star">
+              <h3>🔌 MCP (the plug)</h3>
+              <ul>
+                <li><strong>What:</strong> standard way to connect live apps</li>
+                <li><strong>Job:</strong> reach NotebookLM, Mail, Calendar, Files…</li>
+                <li><strong>Ask:</strong> “Can the assistant touch that tool?”</li>
+                <li><strong>One line:</strong> MCP is how the AI plugs into your tools.</li>
+              </ul>
+            </div>
+            <div class="compare-col">
+              <h3>📋 Skill (the sticky note)</h3>
+              <ul>
+                <li><strong>What:</strong> saved how-to for a repeat task</li>
+                <li><strong>Job:</strong> same steps, tone, checklist every time</li>
+                <li><strong>Ask:</strong> “Should it follow our usual method?”</li>
+                <li><strong>One line:</strong> A Skill is a reusable recipe on the assistant.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="action-chips" aria-hidden="true">
+            <span class="chip plug-chip">🔌 Plug = reach an app</span>
+            <span class="chip skill-chip">📋 Sticky note = how to do it</span>
+          </div>
+          <div class="callout">
+            <strong>Together:</strong> Plug opens NotebookLM; a Skill could say “always ask for citations and a one-page brief.”
+          </div>
+        `;
+
+      case "ex1":
+        return `
+          <h2>Example 1 — Existing MCP: NotebookLM</h2>
+          <div class="ex-hero">
+            <div class="ex-icon">📓</div>
+            <div>
+              <h3>Week 2’s main plug</h3>
+              <p>NotebookLM already speaks MCP. You connect it once, then your assistant can fill a research notebook and ask cited questions — without you copy-pasting everything by hand.</p>
+            </div>
+          </div>
+          <ol class="steps-ol">
+            <li><div><strong>Connect the plug</strong><br><span style="color:var(--muted)">Add the NotebookLM MCP in your assistant (install + sign in with Google). Confirm NotebookLM tools appear.</span></div></li>
+            <li><div><strong>Gather sources</strong><br><span style="color:var(--muted)">Collect 15–25 reputable links across types (web, articles, YouTube, PDFs…). Log them as you go.</span></div></li>
+            <li><div><strong>Ask the assistant to fill the notebook</strong><br><span style="color:var(--muted)">Via MCP: create/open a notebook and add those sources. Note what succeeded or failed.</span></div></li>
+            <li><div><strong>Ask cited questions</strong><br><span style="color:var(--muted)">“What do sources say about X — with citations?” Save the best insights. Human-check anything important.</span></div></li>
+          </ol>
+          <div class="chat-demo" aria-label="Example conversation">
+            <div class="you-line">You: Add these 18 sources to my Week 2 notebook, then ask what experts agree on about hybrid work — cite everything.</div>
+            <div class="tool-line">🔌 MCP → NotebookLM: create notebook · add sources · query with citations</div>
+            <div class="ai-line">Assistant: Added 16 of 18 (2 failed — listed). Here’s a cited summary…</div>
+          </div>
+          <div class="callout sky">
+            <strong>Why this is MCP:</strong> NotebookLM lives outside the chat. The plug lets the assistant press NotebookLM’s buttons for you.
+          </div>
+        `;
+
+      case "ex2":
+        return `
+          <h2>Example 2 — Everyday MCP: Calendar (or Mail)</h2>
+          <div class="ex-hero warm-bg">
+            <div class="ex-icon">📅</div>
+            <div>
+              <h3>Familiar apps, same plug idea</h3>
+              <p>If NotebookLM feels new, picture Calendar or Gmail. Same pattern: connect once → assistant can read (and draft) with your OK.</p>
+            </div>
+          </div>
+          <div class="cards">
+            <div class="card">
+              <h3>📅 Calendar check</h3>
+              <p>“What’s free tomorrow afternoon?” → MCP reads your calendar → list of open slots. Read-only; usually fine.</p>
+            </div>
+            <div class="card">
+              <h3>✉️ Mail (read / draft)</h3>
+              <p>“Summarize unread from Jordan this week.” → MCP reads mail → summary. Sending still needs your OK.</p>
+            </div>
+          </div>
+          <div class="chat-demo">
+            <div class="you-line">You: Check my calendar for Thursday and list free 30-minute slots after 1pm.</div>
+            <div class="tool-line">🔌 MCP → Calendar: list events · find gaps</div>
+            <div class="ai-line">Assistant: Free after 1pm on Thursday: 1:00–1:30, 3:00–4:00, 4:30–5:00.</div>
+          </div>
+          <div class="callout warm">
+            <strong>Same plug, different device:</strong> Calendar MCP and NotebookLM MCP are both “USB devices.” You don’t learn a new metaphor for each app.
+          </div>
+        `;
+
+      case "ex3":
+        return `
+          <h2>Example 3 — Custom MCP: tiny Sticky Notes</h2>
+          <div class="ex-hero violet-bg">
+            <div class="ex-icon">📝</div>
+            <div>
+              <h3>When no ready-made app fits</h3>
+              <p>Sometimes you want the assistant to use <em>your</em> little tool — team FAQs, a local sticky-notes list, a checklist box. That’s a <strong>custom MCP</strong>: a small plug you (or a technical helper) expose.</p>
+            </div>
+          </div>
+          <p><strong>What “building” means in plain words</strong> — not coding jargon:</p>
+          <ol class="steps-ol">
+            <li><div><strong>Decide a few actions</strong><br><span style="color:var(--muted)">e.g. <em>add note</em>, <em>list notes</em>, <em>find note by tag</em>. That’s the whole product for class purposes.</span></div></li>
+            <li><div><strong>Wrap those actions in an MCP plug</strong><br><span style="color:var(--muted)">A small local “server” that advertises those buttons so any MCP-aware assistant can call them.</span></div></li>
+            <li><div><strong>Connect it like any other MCP</strong><br><span style="color:var(--muted)">Your assistant sees “Sticky Notes” next to Calendar and NotebookLM — same plug shape.</span></div></li>
+            <li><div><strong>Use it in chat</strong><br><span style="color:var(--muted)">“Save a sticky: bring oat milk.” → assistant calls <em>add note</em> → your list updates.</span></div></li>
+          </ol>
+          <div class="chat-demo">
+            <div class="you-line">You: Add a sticky note — “Ask Sam about the Friday demo” — tag: follow-up.</div>
+            <div class="tool-line">🔌 Custom MCP → Sticky Notes: add_note</div>
+            <div class="ai-line">Assistant: Saved. You now have 4 notes (1 tagged follow-up).</div>
+          </div>
+          <div class="split" style="margin-top:14px">
+            <div class="safe-box ok">
+              <h3>Use an existing MCP when…</h3>
+              <ul>
+                <li>The app already exists (NotebookLM, Calendar, Mail)</li>
+                <li>You just need to connect &amp; authorize</li>
+                <li>Someone else maintains the plug</li>
+              </ul>
+            </div>
+            <div class="safe-box warn">
+              <h3>Build a custom MCP when…</h3>
+              <ul>
+                <li>No product exposes what you need</li>
+                <li>It’s a tiny internal list / FAQ / checklist</li>
+                <li>You’re OK maintaining a small local tool</li>
+              </ul>
+            </div>
+          </div>
+          <div class="callout violet" style="margin-top:14px">
+            <strong>Takeaway:</strong> Custom MCP is still “a plug” — just one you shaped for a tool that isn’t on the shelf yet. Keep it tiny and read-mostly for class.
+          </div>
+        `;
+
+      case "paths":
+        return `
+          <h2>Try it — which path lights up?</h2>
+          <p class="lead">Click a scenario. Watch whether the answer stays in chat, uses an existing MCP plug, leans on a Skill sticky note, or needs a custom plug.</p>
+          <div class="scenario-grid" role="group" aria-label="Scenarios">
+            <button type="button" class="scenario-btn" data-sc="chat">
+              <strong>💬 “Summarize this email I pasted.”</strong>
+              <span>Text is already here</span>
+            </button>
+            <button type="button" class="scenario-btn" data-sc="mcp">
+              <strong>📅 “What’s free on my calendar tomorrow?”</strong>
+              <span>Needs a live app</span>
+            </button>
+            <button type="button" class="scenario-btn" data-sc="skill">
+              <strong>📋 “Write Monday’s status the usual way.”</strong>
+              <span>Repeatable recipe</span>
+            </button>
+            <button type="button" class="scenario-btn" data-sc="custom">
+              <strong>📝 “Save this to our team sticky notes.”</strong>
+              <span>No shelf product — custom plug</span>
+            </button>
+          </div>
+          ${pathBoardHTML()}
+        `;
+
+      case "safe":
+        return `
+          <h2>Safe use — plugs still need your OK</h2>
+          <p class="lead">Having a USB plug doesn’t mean the assistant should delete files or send mail without asking. Treat powerful actions as “ask first.”</p>
+          <div class="split">
+            <div class="safe-box ok">
+              <h3>✓ Usually fine (read-only)</h3>
+              <ul>
+                <li>Reading calendar free/busy</li>
+                <li>Searching files you can already open</li>
+                <li>Drafting an email you haven’t sent</li>
+                <li>Adding public sources to NotebookLM</li>
+                <li>Listing sticky notes / FAQs</li>
+              </ul>
+            </div>
+            <div class="safe-box warn">
+              <h3>✋ Needs your OK</h3>
+              <ul>
+                <li>Sending email or chat messages</li>
+                <li>Deleting or trashing anything</li>
+                <li>Sharing files outside your team</li>
+                <li>Calendar invites that notify others</li>
+                <li>Anything irreversible or public</li>
+              </ul>
+            </div>
+          </div>
+          <div class="callout warm" style="margin-top:14px">
+            <strong>Classroom habit:</strong> Ask for a <em>draft</em> or <em>plan</em> first. Approve send/delete yourself. This walkthrough never demos auto-send.
+          </div>
+        `;
+
+      case "week":
+        return `
+          <h2>How you’ll use this in Week 2</h2>
+          <p class="lead">Your class session is the NotebookLM story from Example 1 — with a real MCP plug.</p>
+          <div class="cards">
+            <div class="card">
+              <h3>1. Orient</h3>
+              <p>Skill = sticky-note recipe. MCP = live plug (today: NotebookLM).</p>
+            </div>
+            <div class="card">
+              <h3>2. Connect</h3>
+              <p>Install + auth NotebookLM MCP so tools show up in your assistant.</p>
+            </div>
+            <div class="card">
+              <h3>3. Research</h3>
+              <p>Gather 15–25 sources → fill notebook via MCP → ask cited questions.</p>
+            </div>
+          </div>
+          <div class="one-liner">
+            <p><strong>Take-home one-liners</strong></p>
+            <p><strong>MCP:</strong> the USB plug — how the AI reaches your tools.</p>
+            <p><strong>Skill:</strong> the sticky-note recipe sitting on the assistant.</p>
+            <p><strong>Custom MCP:</strong> a tiny plug you shape when no shelf app fits.</p>
+          </div>
+          <p style="margin-top:14px;color:var(--muted)">You’re done — flip back anytime with the step buttons. Nice work.</p>
+        `;
+
+      default:
+        return `<p>Missing section.</p>`;
+    }
+  }
 
   function renderStepper() {
     stepperEl.innerHTML = "";
@@ -603,313 +1184,90 @@
 
   function goTo(i) {
     current = Math.max(0, Math.min(steps.length - 1, i));
-    if (steps[current].id !== "quiz") {
-      // keep quiz state when returning
-    }
+    flowPlaying = false;
     render();
   }
 
   function next() {
     if (current < steps.length - 1) goTo(current + 1);
   }
-
   function back() {
     if (current > 0) goTo(current - 1);
   }
 
-  function renderCompare() {
-    const dimMcp = compareMode === "skill";
-    const dimSkill = compareMode === "mcp";
-    return `
-      <h2>MCP vs Skills — side by side</h2>
-      <p class="lead">Same kitchen. Different jobs. Use the toggle to focus on one, or see both.</p>
-      <div class="compare-toggle" role="group" aria-label="Compare focus">
-        <button type="button" data-mode="mcp" class="${compareMode === "mcp" ? "active" : ""}">MCP only</button>
-        <button type="button" data-mode="both" class="${compareMode === "both" ? "active" : ""}">Both</button>
-        <button type="button" data-mode="skill" class="${compareMode === "skill" ? "active" : ""}">Skills only</button>
-      </div>
-      <div class="compare-grid">
-        <div class="compare-col ${dimMcp ? "dim" : ""}" aria-hidden="${dimMcp}">
-          <h3>🔌 MCP</h3>
-          <ul>
-            <li><strong>What it is:</strong> the remote control that reaches your apps</li>
-            <li><strong>Job:</strong> connect — read calendar, draft in Gmail, open Drive files</li>
-            <li><strong>Think:</strong> “Can the assistant touch that tool?”</li>
-            <li><strong>One sentence:</strong> MCP is how the AI plugs into your tools.</li>
-          </ul>
-        </div>
-        <div class="compare-col ${dimSkill ? "dim" : ""}" aria-hidden="${dimSkill}">
-          <h3>📋 Skill</h3>
-          <ul>
-            <li><strong>What it is:</strong> a saved recipe / playbook for a repeatable task</li>
-            <li><strong>Job:</strong> guide — same steps, tone, and checklist every time</li>
-            <li><strong>Think:</strong> “Should the assistant follow our usual method?”</li>
-            <li><strong>One sentence:</strong> A Skill is a reusable how-to the AI follows.</li>
-          </ul>
-        </div>
-      </div>
-      <div class="callout" style="margin-top:16px">
-        <strong>Together:</strong> MCP opens the fridge; a Skill tells the assistant how you like the sandwich made.
-      </div>
-    `;
-  }
-
-  function renderQuiz() {
-    const q = quiz[quizIndex];
-    const opts = q.options.map((o, i) =>
-      `<button type="button" data-qi="${i}" ${quizAnswered ? "disabled" : ""}>${o.label}</button>`
-    ).join("");
-
-    return `
-      <h2>Mini demo: what does this ask need?</h2>
-      <p class="lead">Read each request. Pick whether it needs a connector (MCP), a Skill, both, or neither. Instant feedback — no grades.</p>
-      <p class="quiz-progress">Scenario ${quizIndex + 1} of ${quiz.length}</p>
-      <p class="quiz-q">${q.ask}</p>
-      <div class="quiz-options" id="quizOptions">${opts}</div>
-      <div class="feedback" id="quizFeedback" role="status"></div>
-      <div class="quiz-nav">
-        <button type="button" class="btn btn-secondary" id="quizPrev" ${quizIndex === 0 ? "disabled" : ""}>← Previous scenario</button>
-        <button type="button" class="btn btn-primary" id="quizNextSc" ${quizIndex === quiz.length - 1 ? "disabled" : ""}>Next scenario →</button>
-      </div>
-    `;
-  }
-
-  function contentFor(id) {
-    switch (id) {
-      case "problem":
-        return `
-          <h2>What problem are we solving?</h2>
-          <p class="lead">Chat-only AI is like a smart friend on the phone: great advice, but they can’t open your fridge, check your calendar, or file your receipts.</p>
-          <div class="cards">
-            <div class="card">
-              <h3><span class="emoji">💬</span> Chat-only AI</h3>
-              <p>Reads what you paste. Writes drafts. Explains ideas. Stops at the edge of the chat window.</p>
-            </div>
-            <div class="card">
-              <h3><span class="emoji">🛠️</span> AI that can use tools</h3>
-              <p>Can reach apps you allow — mail, calendar, files — and follow your usual playbooks for repeat work.</p>
-            </div>
-          </div>
-          <div class="callout">
-            <strong>This week’s idea:</strong> We want assistants (Codex, Cursor, Grok-style tools) that don’t just talk — they help with real work, safely, with your permission.
-          </div>
-          <p>Two ingredients make that possible:</p>
-          <ol>
-            <li><strong>MCP</strong> — how the assistant plugs into your tools</li>
-            <li><strong>Skills</strong> — saved recipes so it doesn’t reinvent your process every time</li>
-          </ol>
-        `;
-
-      case "mcp":
-        return `
-          <h2>MCP in one sentence</h2>
-          <div class="callout">
-            <strong>MCP (Model Context Protocol)</strong> is a standard “remote control” that lets an AI assistant press buttons on apps you connect — instead of only chatting.
-          </div>
-          <div class="metaphor">
-            <div class="metaphor-icon" aria-hidden="true">📺</div>
-            <div>
-              <strong>Metaphor we’ll stick with: the remote control</strong>
-              <p style="margin:6px 0 0;color:var(--muted)">Your TV (Gmail, Calendar, Drive…) sits across the room. The assistant is smart, but without a remote it can only describe what to press. <em>MCP is the remote</em> — one familiar shape of buttons so different TVs (apps) can be controlled the same way.</p>
-            </div>
-          </div>
-          <p>You don’t need to memorize the letters. When someone says “we connected MCP,” hear: <em>“we gave the assistant a remote for that app.”</em></p>
-          <div class="callout warm">
-            <strong>Remember:</strong> The remote only works for apps you’ve plugged in — and big actions (send, delete) still need your OK.
-          </div>
-        `;
-
-      case "connector":
-        return `
-          <h2>What is a connector / server?</h2>
-          <p class="lead">Think of each app as a TV channel. A <strong>connector</strong> (sometimes called an MCP server) is the adapter that teaches the remote the buttons for that one app.</p>
-          <div class="cards">
-            <div class="card">
-              <h3><span class="emoji">✉️</span> Mail connector</h3>
-              <p>Read threads, draft replies, send when you approve.</p>
-            </div>
-            <div class="card">
-              <h3><span class="emoji">📅</span> Calendar connector</h3>
-              <p>See free time, propose meetings, create events you confirm.</p>
-            </div>
-            <div class="card">
-              <h3><span class="emoji">📁</span> Files connector</h3>
-              <p>Find docs in Drive-style storage, open them, help you update.</p>
-            </div>
-          </div>
-          <div class="callout sky">
-            <strong>Plain English:</strong> You don’t “install MCP” for fun — you connect the apps you actually use. Each connector = one more set of buttons on the remote.
-          </div>
-          <p>In class tools (Cursor, Codex, Grok-style assistants), you’ll often see a list of connected services. That’s your remote’s channel list.</p>
-        `;
-
-      case "skill":
-        return `
-          <h2>What is a Skill?</h2>
-          <p class="lead">A <strong>Skill</strong> is a saved recipe — a playbook the assistant follows for a task you do more than once.</p>
-          <div class="metaphor">
-            <div class="metaphor-icon" aria-hidden="true">📋</div>
-            <div>
-              <strong>Recipe, not remote</strong>
-              <p style="margin:6px 0 0;color:var(--muted)">The remote (MCP) can open the fridge. A Skill is the sticky note on the fridge: “Monday status update — use this outline, this tone, these three checks before you’re done.”</p>
-            </div>
-          </div>
-          <div class="cards">
-            <div class="card">
-              <h3>Reusable</h3>
-              <p>Write the steps once; invoke them whenever that kind of work shows up.</p>
-            </div>
-            <div class="card">
-              <h3>Your standards</h3>
-              <p>Captures tone, structure, and “don’t forget” items so quality stays consistent.</p>
-            </div>
-            <div class="card">
-              <h3>Optional friend of MCP</h3>
-              <p>A Skill can use connectors — or work from text you paste. They pair well, but aren’t the same thing.</p>
-            </div>
-          </div>
-          <div class="callout">
-            <strong>One sentence:</strong> A Skill is a reusable how-to the AI follows so you don’t re-explain the same process every time.
-          </div>
-        `;
-
-      case "compare":
-        return renderCompare();
-
-      case "quiz":
-        return renderQuiz();
-
-      case "safe":
-        return `
-          <h2>Safe use: what needs your OK</h2>
-          <p class="lead">Having a remote doesn’t mean the assistant should change channels without asking. Treat powerful actions as “ask first.”</p>
-          <div class="split">
-            <div class="safe-box ok">
-              <h3>✓ Usually fine (read-only)</h3>
-              <ul>
-                <li>Reading a calendar to find free slots</li>
-                <li>Searching files you already can access</li>
-                <li>Drafting an email you haven’t sent</li>
-                <li>Summarizing something you pasted</li>
-              </ul>
-            </div>
-            <div class="safe-box warn">
-              <h3>✋ Needs your OK</h3>
-              <ul>
-                <li>Sending an email or message</li>
-                <li>Deleting or trashing files / mail</li>
-                <li>Sharing a file outside your team</li>
-                <li>Creating calendar invites that notify others</li>
-                <li>Anything irreversible or public</li>
-              </ul>
-            </div>
-          </div>
-          <div class="callout warm" style="margin-top:16px">
-            <strong>Classroom habit:</strong> If you’re unsure, ask the assistant to <em>draft</em> or <em>show a plan</em> first — then approve the send/delete yourself.
-          </div>
-        `;
-
-      case "week":
-        return `
-          <h2>How you might use this this week</h2>
-          <p class="lead">Three classroom-style examples — pick one to try with your assistant.</p>
-
-          <div class="example">
-            <span class="tag mcp">MCP</span>
-            <h3>1. Meeting prep from your calendar</h3>
-            <p style="margin:0;color:var(--muted)">“Look at tomorrow’s meetings and give me a one-page prep sheet: who’s there, likely goals, and three questions to ask.” <em>Needs a calendar connector.</em></p>
-          </div>
-
-          <div class="example">
-            <span class="tag skill">Skill</span>
-            <h3>2. Same status update every time</h3>
-            <p style="margin:0;color:var(--muted)">Save a Skill: “Weekly status = Wins / Blockers / Next week / Ask for help — friendly, short, no jargon.” Reuse it Monday without rewriting the instructions.</p>
-          </div>
-
-          <div class="example">
-            <span class="tag both">Both</span>
-            <h3>3. Client note from real files</h3>
-            <p style="margin:0;color:var(--muted)">“Pull the latest project notes from Drive, then write a client update using our house-style Skill. Show me the draft — don’t send.” Connector + recipe, with your OK before anything leaves.</p>
-          </div>
-
-          <div class="one-liner">
-            <p><strong>Take-home one-liners</strong></p>
-            <p><strong>MCP:</strong> how the AI plugs into your tools (the remote control).</p>
-            <p><strong>Skill:</strong> a reusable how-to / playbook the AI follows.</p>
-          </div>
-          <p style="margin-top:16px;color:var(--muted)">You’re done with the walkthrough — nice work. Flip back any time with the step buttons above.</p>
-        `;
-
-      default:
-        return `<p>Missing section.</p>`;
+  function playMainFlow() {
+    const flow = panelEl.querySelector("#mainFlow");
+    const apps = panelEl.querySelectorAll("#flowApps .mini-app");
+    if (!flow) return;
+    flow.classList.add("animating");
+    const bubbles = flow.querySelectorAll(".flow-bubble");
+    let step = 0;
+    const sequence = [
+      () => { bubbles.forEach(b => b.classList.remove("lit")); apps.forEach(a => a.classList.remove("lit")); bubbles[0] && bubbles[0].classList.add("lit"); },
+      () => { bubbles[1] && bubbles[1].classList.add("lit"); },
+      () => { bubbles[2] && bubbles[2].classList.add("lit"); },
+      () => { apps.forEach(a => a.classList.add("lit")); }
+    ];
+    function tick() {
+      if (step < sequence.length) {
+        sequence[step]();
+        step++;
+        setTimeout(tick, 550);
+      } else {
+        setTimeout(() => {
+          flow.classList.remove("animating");
+          bubbles.forEach(b => b.classList.remove("lit"));
+          apps.forEach(a => a.classList.remove("lit"));
+          flowPlaying = false;
+          const btn = panelEl.querySelector("#playFlow");
+          if (btn) btn.textContent = "▶ Watch the flow";
+        }, 1200);
+      }
     }
+    flowPlaying = true;
+    const btn = panelEl.querySelector("#playFlow");
+    if (btn) btn.textContent = "⏳ Playing…";
+    tick();
+  }
+
+  function applyScenario(key) {
+    selectedScenario = key;
+    const sc = scenarios[key];
+    const flow = panelEl.querySelector("#pathFlow");
+    const result = panelEl.querySelector("#pathResult");
+    const explain = panelEl.querySelector("#pathExplain");
+    panelEl.querySelectorAll(".scenario-btn").forEach(b => {
+      b.classList.toggle("active", b.getAttribute("data-sc") === key);
+    });
+    if (flow) {
+      flow.className = "flow path-flow " + sc.path;
+      // For custom, hide the existing-apps emphasis; for mcp highlight calendar
+      flow.querySelectorAll(".mini-app").forEach(a => {
+        a.classList.toggle("target", a.getAttribute("data-app") === "cal" && key === "mcp");
+      });
+    }
+    if (result) {
+      result.innerHTML = `<span class="result-tag ${sc.tag}">${sc.label}</span>`;
+    }
+    if (explain) explain.textContent = sc.explain;
   }
 
   function bindPanelEvents() {
-    if (steps[current].id === "compare") {
-      panelEl.querySelectorAll(".compare-toggle button").forEach((btn) => {
-        btn.addEventListener("click", () => {
-          compareMode = btn.getAttribute("data-mode");
-          panelEl.innerHTML = contentFor("compare");
-          bindPanelEvents();
-        });
+    const play = panelEl.querySelector("#playFlow");
+    if (play) {
+      play.addEventListener("click", () => {
+        if (!flowPlaying) playMainFlow();
       });
     }
 
-    if (steps[current].id === "quiz") {
-      const options = panelEl.querySelector("#quizOptions");
-      const feedback = panelEl.querySelector("#quizFeedback");
-      const q = quiz[quizIndex];
-
-      if (quizAnswered) {
-        // restore visual state if revisiting
-        const buttons = options.querySelectorAll("button");
-        buttons.forEach((b, i) => {
-          b.disabled = true;
-          if (q.options[i].correct) b.classList.add("correct");
-        });
-        feedback.className = "feedback show ok";
-        feedback.innerHTML = `<strong>You got it (or reviewed it).</strong> ${q.why}`;
-      }
-
-      options.querySelectorAll("button").forEach((btn) => {
-        btn.addEventListener("click", () => {
-          if (quizAnswered) return;
-          const idx = Number(btn.getAttribute("data-qi"));
-          const opt = q.options[idx];
-          quizAnswered = true;
-          options.querySelectorAll("button").forEach((b, i) => {
-            b.disabled = true;
-            if (q.options[i].correct) b.classList.add("correct");
-          });
-          if (opt.correct) {
-            btn.classList.add("correct");
-            feedback.className = "feedback show ok";
-            feedback.innerHTML = `<strong>Yes!</strong> ${q.why}`;
-          } else {
-            btn.classList.add("wrong");
-            feedback.className = "feedback show no";
-            feedback.innerHTML = `<strong>Not quite.</strong> ${q.why}`;
-          }
-        });
+    panelEl.querySelectorAll(".scenario-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        applyScenario(btn.getAttribute("data-sc"));
       });
+    });
 
-      const qp = panelEl.querySelector("#quizPrev");
-      const qn = panelEl.querySelector("#quizNextSc");
-      if (qp) qp.addEventListener("click", () => {
-        if (quizIndex > 0) {
-          quizIndex--;
-          quizAnswered = false;
-          render();
-        }
-      });
-      if (qn) qn.addEventListener("click", () => {
-        if (quizIndex < quiz.length - 1) {
-          quizIndex++;
-          quizAnswered = false;
-          render();
-        }
-      });
+    if (steps[current].id === "paths" && selectedScenario) {
+      applyScenario(selectedScenario);
     }
   }
 
@@ -921,7 +1279,6 @@
     btnNext.disabled = current === steps.length - 1;
     btnNext.textContent = current === steps.length - 1 ? "Done ✓" : "Next →";
     bindPanelEvents();
-    // Focus panel heading for screen readers / keyboard flow
     const h2 = panelEl.querySelector("h2");
     if (h2) {
       h2.setAttribute("tabindex", "-1");
