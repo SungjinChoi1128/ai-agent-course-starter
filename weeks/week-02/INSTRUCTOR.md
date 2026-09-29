@@ -13,6 +13,7 @@
 - [ ] **Demo notebook** ready with **20+ mixed sources** (YouTube + journals/articles + web + at least one PDF/report) for the opening hook.
 - [ ] Fallback ready: if MCP auth fails, learners still finish the **source log** with Codex; add sources in the **NotebookLM UI** from that list after class (or mid-class if time).
 - [ ] Whiteboard line: **Skill = reusable instructions. MCP = live tool plug. Today the plug is NotebookLM — volume + citations.**
+- [ ] Optional orientation aid: [mcp-and-skills-walkthrough.html](mcp-and-skills-walkthrough.html) ready to open offline for the Skill vs MCP hook (0–8 min).
 - [ ] Say the caps out loud: **15–25 sources, ≥4 types. Stop at the cap.**
 - [ ] Class path includes learner **Step 1 = install + auth** (not only instructor pre-class).
 
@@ -22,7 +23,7 @@
 
 ## Hook (0–8)
 
-Show your pre-built dense notebook. Ask: “What would change if you had 20 sources instead of 5?” One-liner: MCP lets the agent **do** something in NotebookLM, not only write advice. Learners run **Step 0 Orient** — agree to start; do **not** jump to topic yet.
+Show your pre-built dense notebook. Ask: “What would change if you had 20 sources instead of 5?” One-liner: MCP lets the agent **do** something in NotebookLM, not only write advice. Optional: screen-share or point learners at [mcp-and-skills-walkthrough.html](mcp-and-skills-walkthrough.html) for a quick Skill vs MCP click-through. Learners run **Step 0 Orient** — agree to start; do **not** jump to topic yet.
 
 ## Facilitation map
 

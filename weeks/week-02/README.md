@@ -21,6 +21,7 @@ High-volume, mixed-source research with Codex + NotebookLM MCP. 90 minutes, four
 
 ## Before class
 
+- **New to MCP vs Skills?** Open the [interactive MCP & Skills walkthrough](mcp-and-skills-walkthrough.html) — a dummy-friendly click-through intro (double-click the file; works offline in any browser).
 - Google account that can open [NotebookLM](https://notebooklm.google.com/).
 - NotebookLM MCP command ready for learners (see [INSTRUCTOR.md](INSTRUCTOR.md)); class path includes **Step 1 install + auth**.
 - Instructor demo notebook with **20+ sources** already built (hook).
@@ -50,10 +51,11 @@ Optional wow if time: open NotebookLM UI and start an **Audio Overview** — do 
 
 ## Use this lesson
 
-1. Instructor: read [Instructor notes](INSTRUCTOR.md).
-2. Learners: open [Exercises and homework](EXERCISES.md).
-3. Paste prompts **one at a time** from [Prompts](PROMPTS.md) (or say **start lesson** / **continue lesson** if Codex is coaching from `AGENTS.md`).
-4. Keep personal work under `workspace/` (and project folders `sources/`, `insights/`, `outputs/`).
+1. Optional warm-up: open the [interactive MCP & Skills walkthrough](mcp-and-skills-walkthrough.html) (offline in browser) before or during the Skill vs MCP orient.
+2. Instructor: read [Instructor notes](INSTRUCTOR.md).
+3. Learners: open [Exercises and homework](EXERCISES.md).
+4. Paste prompts **one at a time** from [Prompts](PROMPTS.md) (or say **start lesson** / **continue lesson** if Codex is coaching from `AGENTS.md`).
+5. Keep personal work under `workspace/` (and project folders `sources/`, `insights/`, `outputs/`).
 
 ## Exit artifact
 

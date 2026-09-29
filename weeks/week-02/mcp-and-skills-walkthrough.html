@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MCP &amp; Skills — a simple walkthrough | Week 2</title>
+<style>
+  :root {
+    --bg: #f6f4f1;
+    --surface: #ffffff;
+    --ink: #1c2430;
+    --muted: #5a6574;
+    --line: #e4e0d8;
+    --accent: #2f6f5e;
+    --accent-soft: #e7f2ee;
+    --accent-dark: #1f4d41;
+    --warm: #c46b3a;
+    --warm-soft: #f8eee6;
+    --sky: #3a6ea5;
+    --sky-soft: #e8f0f8;
+    --ok: #2f6f5e;
+    --warn: #b45309;
+    --shadow: 0 8px 28px rgba(28, 36, 48, 0.08);
+    --radius: 16px;
+    --focus: 0 0 0 3px rgba(47, 111, 94, 0.35);
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    background:
+      radial-gradient(1200px 600px at 10% -10%, #e8f2ee 0%, transparent 55%),
+      radial-gradient(900px 500px at 100% 0%, #f8eee6 0%, transparent 50%),
+      var(--bg);
+    color: var(--ink);
+    line-height: 1.55;
+    font-size: 18px;
+    min-height: 100vh;
+  }
+
+  .wrap {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 28px 18px 80px;
+  }
+
+  header.hero {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: calc(var(--radius) + 4px);
+    padding: 28px 28px 24px;
+    box-shadow: var(--shadow);
+    margin-bottom: 22px;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--accent-soft);
+    color: var(--accent-dark);
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    padding: 6px 12px;
+    border-radius: 999px;
+    margin-bottom: 14px;
+  }
+
+  h1 {
+    margin: 0 0 8px;
+    font-size: clamp(1.55rem, 4vw, 2.15rem);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+
+  .subtitle {
+    margin: 0;
+    color: var(--muted);
+    font-size: 1.05rem;
+  }
+
+  /* Progress stepper */
+  .stepper {
+    display: flex;
+    gap: 6px;
+    overflow-x: auto;
+    padding: 4px 2px 14px;
+    margin-bottom: 8px;
+    scrollbar-width: thin;
+  }
+
+  .step-dot {
+    flex: 1 0 auto;
+    min-width: 92px;
+    border: 1px solid var(--line);
+    background: var(--surface);
+    color: var(--muted);
+    border-radius: 999px;
+    padding: 8px 12px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.15s;
+    text-align: center;
+  }
+
+  .step-dot:hover { border-color: var(--accent); color: var(--accent-dark); }
+  .step-dot:focus-visible { outline: none; box-shadow: var(--focus); }
+  .step-dot.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+  }
+  .step-dot.done {
+    background: var(--accent-soft);
+    border-color: #b7d5cb;
+    color: var(--accent-dark);
+  }
+
+  .panel {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 28px 26px;
+    min-height: 420px;
+    animation: fadeIn 0.28s ease;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .panel h2 {
+    margin: 0 0 14px;
+    font-size: clamp(1.25rem, 3vw, 1.55rem);
+    letter-spacing: -0.015em;
+  }
+
+  .panel p { margin: 0 0 14px; color: var(--ink); }
+  .panel p.lead { font-size: 1.08rem; }
+
+  .callout {
+    background: var(--accent-soft);
+    border-left: 4px solid var(--accent);
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin: 16px 0;
+  }
+
+  .callout.warm {
+    background: var(--warm-soft);
+    border-left-color: var(--warm);
+  }
+
+  .callout.sky {
+    background: var(--sky-soft);
+    border-left-color: var(--sky);
+  }
+
+  .callout strong { color: var(--accent-dark); }
+  .callout.warm strong { color: #8a3d16; }
+  .callout.sky strong { color: #234e78; }
+
+  .metaphor {
+    display: grid;
+    grid-template-columns: 64px 1fr;
+    gap: 14px;
+    align-items: start;
+    background: linear-gradient(135deg, #e7f2ee, #f8eee6);
+    border-radius: 14px;
+    padding: 18px;
+    margin: 18px 0;
+  }
+
+  .metaphor-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 16px;
+    background: #fff;
+    display: grid;
+    place-items: center;
+    font-size: 1.8rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  }
+
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+
+  .card {
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 14px 16px;
+    background: #fafaf8;
+  }
+
+  .card h3 {
+    margin: 0 0 6px;
+    font-size: 1rem;
+  }
+
+  .card p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--muted);
+  }
+
+  .emoji {
+    display: inline-block;
+    margin-right: 4px;
+  }
+
+  /* Comparison toggle */
+  .compare-toggle {
+    display: flex;
+    gap: 8px;
+    margin: 12px 0 18px;
+    background: #f0eeea;
+    padding: 6px;
+    border-radius: 999px;
+    width: fit-content;
+    max-width: 100%;
+  }
+
+  .compare-toggle button {
+    border: none;
+    background: transparent;
+    padding: 10px 18px;
+    border-radius: 999px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--muted);
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .compare-toggle button.active {
+    background: #fff;
+    color: var(--accent-dark);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+
+  .compare-toggle button:focus-visible { outline: none; box-shadow: var(--focus); }
+
+  .compare-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+
+  @media (max-width: 640px) {
+    .compare-grid { grid-template-columns: 1fr; }
+  }
+
+  .compare-col {
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 18px;
+    background: #fafaf8;
+    transition: opacity 0.25s, transform 0.25s;
+  }
+
+  .compare-col.dim {
+    opacity: 0.45;
+    transform: scale(0.98);
+  }
+
+  .compare-col h3 {
+    margin: 0 0 10px;
+    font-size: 1.1rem;
+  }
+
+  .compare-col ul {
+    margin: 0;
+    padding-left: 1.1rem;
+    color: var(--muted);
+  }
+
+  .compare-col li { margin-bottom: 8px; }
+
+  /* Quiz */
+  .quiz-q {
+    font-weight: 600;
+    margin-bottom: 12px;
+    font-size: 1.05rem;
+  }
+
+  .quiz-options {
+    display: grid;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+
+  .quiz-options button {
+    text-align: left;
+    border: 1.5px solid var(--line);
+    background: #fff;
+    border-radius: 12px;
+    padding: 14px 16px;
+    font-size: 1rem;
+    cursor: pointer;
+    color: var(--ink);
+    transition: border-color 0.15s, background 0.15s;
+    font-family: inherit;
+  }
+
+  .quiz-options button:hover:not(:disabled) {
+    border-color: var(--accent);
+    background: var(--accent-soft);
+  }
+
+  .quiz-options button:focus-visible { outline: none; box-shadow: var(--focus); }
+
+  .quiz-options button.correct {
+    border-color: var(--ok);
+    background: var(--accent-soft);
+  }
+
+  .quiz-options button.wrong {
+    border-color: #c45c5c;
+    background: #fceded;
+  }
+
+  .quiz-options button:disabled { cursor: default; }
+
+  .feedback {
+    display: none;
+    border-radius: 12px;
+    padding: 14px 16px;
+    margin-bottom: 14px;
+  }
+
+  .feedback.show { display: block; animation: fadeIn 0.25s ease; }
+  .feedback.ok { background: var(--accent-soft); border: 1px solid #b7d5cb; }
+  .feedback.no { background: #fceded; border: 1px solid #e8b4b4; }
+
+  .quiz-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .quiz-progress {
+    font-size: 0.9rem;
+    color: var(--muted);
+    font-weight: 600;
+  }
+
+  /* Safe use list */
+  .split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+
+  @media (max-width: 640px) {
+    .split { grid-template-columns: 1fr; }
+  }
+
+  .safe-box {
+    border-radius: 14px;
+    padding: 16px;
+    border: 1px solid var(--line);
+  }
+
+  .safe-box.ok { background: var(--accent-soft); border-color: #b7d5cb; }
+  .safe-box.warn { background: var(--warm-soft); border-color: #e8c4a8; }
+
+  .safe-box h3 { margin: 0 0 10px; font-size: 1.05rem; }
+  .safe-box ul { margin: 0; padding-left: 1.15rem; color: var(--muted); }
+  .safe-box li { margin-bottom: 6px; }
+
+  /* Examples */
+  .example {
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 16px 18px;
+    margin-bottom: 12px;
+    background: #fafaf8;
+  }
+
+  .example h3 {
+    margin: 0 0 6px;
+    font-size: 1.05rem;
+  }
+
+  .example .tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 3px 8px;
+    border-radius: 6px;
+    margin-right: 6px;
+    margin-bottom: 8px;
+  }
+
+  .tag.mcp { background: var(--sky-soft); color: #234e78; }
+  .tag.skill { background: var(--warm-soft); color: #8a3d16; }
+  .tag.both { background: var(--accent-soft); color: var(--accent-dark); }
+
+  /* Nav footer */
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    appearance: none;
+    border: none;
+    border-radius: 999px;
+    padding: 12px 22px;
+    font-size: 1rem;
+    font-weight: 650;
+    font-family: inherit;
+    cursor: pointer;
+    transition: transform 0.12s, background 0.15s, box-shadow 0.15s;
+  }
+
+  .btn:active { transform: translateY(1px); }
+  .btn:focus-visible { outline: none; box-shadow: var(--focus); }
+
+  .btn-primary {
+    background: var(--accent);
+    color: #fff;
+  }
+  .btn-primary:hover { background: var(--accent-dark); }
+
+  .btn-secondary {
+    background: #fff;
+    color: var(--ink);
+    border: 1.5px solid var(--line);
+  }
+  .btn-secondary:hover { border-color: var(--accent); color: var(--accent-dark); }
+
+  .btn:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  .footer-note {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.88rem;
+    margin-top: 22px;
+  }
+
+  .one-liner {
+    background: #fff;
+    border: 2px dashed #b7d5cb;
+    border-radius: 14px;
+    padding: 16px;
+    margin-top: 12px;
+  }
+
+  .one-liner p { margin: 0 0 8px; }
+  .one-liner p:last-child { margin: 0; }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+  }
+
+  .hidden { display: none !important; }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="hero">
+      <div class="badge">Sungjin's AI Lessons · Week 2</div>
+      <h1>MCP &amp; Skills — a simple walkthrough</h1>
+      <p class="subtitle">Learn how your AI assistant can use your tools — and follow your playbooks — without drowning in jargon.</p>
+    </header>
+
+    <nav class="stepper" id="stepper" aria-label="Lesson steps" role="tablist"></nav>
+
+    <main id="panel" class="panel" role="tabpanel" aria-live="polite"></main>
+
+    <div class="nav">
+      <button type="button" class="btn btn-secondary" id="btnBack">← Back</button>
+      <button type="button" class="btn btn-primary" id="btnNext">Next →</button>
+    </div>
+
+    <p class="footer-note">Offline-friendly · Press ← → or use the buttons · Designed for non-technical professionals</p>
+  </div>
+
+<script>
+(function () {
+  "use strict";
+
+  const steps = [
+    { id: "problem", label: "1. Problem" },
+    { id: "mcp", label: "2. MCP" },
+    { id: "connector", label: "3. Connectors" },
+    { id: "skill", label: "4. Skills" },
+    { id: "compare", label: "5. Compare" },
+    { id: "quiz", label: "6. Mini quiz" },
+    { id: "safe", label: "7. Safe use" },
+    { id: "week", label: "8. This week" }
+  ];
+
+  let current = 0;
+  let compareMode = "both"; // mcp | skill | both
+  let quizIndex = 0;
+  let quizAnswered = false;
+
+  const quiz = [
+    {
+      ask: "You say: “Summarize this email thread I pasted into the chat.”",
+      options: [
+        { label: "Needs MCP (a connector)", correct: false },
+        { label: "Needs a Skill", correct: false },
+        { label: "Needs both MCP and a Skill", correct: false },
+        { label: "Neither — plain chat is enough", correct: true }
+      ],
+      why: "The email text is already in the conversation. The assistant can read and summarize it with no connector and no saved playbook."
+    },
+    {
+      ask: "You say: “Check my calendar for tomorrow and list free slots.”",
+      options: [
+        { label: "Needs MCP (a calendar connector)", correct: true },
+        { label: "Needs a Skill only", correct: false },
+        { label: "Needs both MCP and a Skill", correct: false },
+        { label: "Neither — plain chat is enough", correct: false }
+      ],
+      why: "Your calendar lives outside the chat. MCP (a connector) is how the assistant reaches it. A Skill is optional polish, not required for a one-off ask."
+    },
+    {
+      ask: "You say: “Every Monday, draft my weekly status update the same way — using this outline and tone.”",
+      options: [
+        { label: "Needs MCP only", correct: false },
+        { label: "Needs a Skill (a saved recipe)", correct: true },
+        { label: "Needs both MCP and a Skill", correct: false },
+        { label: "Neither", correct: false }
+      ],
+      why: "You’re describing a reusable process. A Skill is the saved playbook so you don’t re-explain it every time. (If the status pulls live data from email or docs, you’d add MCP too — but the core ask here is the recipe.)"
+    },
+    {
+      ask: "You say: “Find last week’s project notes in Drive, then write a client update in our house style.”",
+      options: [
+        { label: "Needs MCP only", correct: false },
+        { label: "Needs a Skill only", correct: false },
+        { label: "Needs both MCP and a Skill", correct: true },
+        { label: "Neither", correct: false }
+      ],
+      why: "MCP reaches Drive to fetch the notes. A Skill (house style / update template) keeps the writing consistent every time."
+    },
+    {
+      ask: "You say: “Send this apology email to the client now.”",
+      options: [
+        { label: "Needs MCP — and your OK before sending", correct: true },
+        { label: "Needs a Skill only", correct: false },
+        { label: "Neither — chat can send email by itself", correct: false },
+        { label: "Just type “send” and it always goes", correct: false }
+      ],
+      why: "Sending mail needs an email connector (MCP). Because sending is irreversible, good assistants ask for your approval first — don’t treat “send” as automatic."
+    }
+  ];
+
+  const stepperEl = document.getElementById("stepper");
+  const panelEl = document.getElementById("panel");
+  const btnBack = document.getElementById("btnBack");
+  const btnNext = document.getElementById("btnNext");
+
+  function renderStepper() {
+    stepperEl.innerHTML = "";
+    steps.forEach((s, i) => {
+      const b = document.createElement("button");
+      b.type = "button";
+      b.className = "step-dot" + (i === current ? " active" : i < current ? " done" : "");
+      b.textContent = s.label;
+      b.setAttribute("role", "tab");
+      b.setAttribute("aria-selected", i === current ? "true" : "false");
+      b.setAttribute("aria-controls", "panel");
+      b.id = "tab-" + s.id;
+      b.addEventListener("click", () => goTo(i));
+      stepperEl.appendChild(b);
+    });
+  }
+
+  function goTo(i) {
+    current = Math.max(0, Math.min(steps.length - 1, i));
+    if (steps[current].id !== "quiz") {
+      // keep quiz state when returning
+    }
+    render();
+  }
+
+  function next() {
+    if (current < steps.length - 1) goTo(current + 1);
+  }
+
+  function back() {
+    if (current > 0) goTo(current - 1);
+  }
+
+  function renderCompare() {
+    const dimMcp = compareMode === "skill";
+    const dimSkill = compareMode === "mcp";
+    return `
+      <h2>MCP vs Skills — side by side</h2>
+      <p class="lead">Same kitchen. Different jobs. Use the toggle to focus on one, or see both.</p>
+      <div class="compare-toggle" role="group" aria-label="Compare focus">
+        <button type="button" data-mode="mcp" class="${compareMode === "mcp" ? "active" : ""}">MCP only</button>
+        <button type="button" data-mode="both" class="${compareMode === "both" ? "active" : ""}">Both</button>
+        <button type="button" data-mode="skill" class="${compareMode === "skill" ? "active" : ""}">Skills only</button>
+      </div>
+      <div class="compare-grid">
+        <div class="compare-col ${dimMcp ? "dim" : ""}" aria-hidden="${dimMcp}">
+          <h3>🔌 MCP</h3>
+          <ul>
+            <li><strong>What it is:</strong> the remote control that reaches your apps</li>
+            <li><strong>Job:</strong> connect — read calendar, draft in Gmail, open Drive files</li>
+            <li><strong>Think:</strong> “Can the assistant touch that tool?”</li>
+            <li><strong>One sentence:</strong> MCP is how the AI plugs into your tools.</li>
+          </ul>
+        </div>
+        <div class="compare-col ${dimSkill ? "dim" : ""}" aria-hidden="${dimSkill}">
+          <h3>📋 Skill</h3>
+          <ul>
+            <li><strong>What it is:</strong> a saved recipe / playbook for a repeatable task</li>
+            <li><strong>Job:</strong> guide — same steps, tone, and checklist every time</li>
+            <li><strong>Think:</strong> “Should the assistant follow our usual method?”</li>
+            <li><strong>One sentence:</strong> A Skill is a reusable how-to the AI follows.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="callout" style="margin-top:16px">
+        <strong>Together:</strong> MCP opens the fridge; a Skill tells the assistant how you like the sandwich made.
+      </div>
+    `;
+  }
+
+  function renderQuiz() {
+    const q = quiz[quizIndex];
+    const opts = q.options.map((o, i) =>
+      `<button type="button" data-qi="${i}" ${quizAnswered ? "disabled" : ""}>${o.label}</button>`
+    ).join("");
+
+    return `
+      <h2>Mini demo: what does this ask need?</h2>
+      <p class="lead">Read each request. Pick whether it needs a connector (MCP), a Skill, both, or neither. Instant feedback — no grades.</p>
+      <p class="quiz-progress">Scenario ${quizIndex + 1} of ${quiz.length}</p>
+      <p class="quiz-q">${q.ask}</p>
+      <div class="quiz-options" id="quizOptions">${opts}</div>
+      <div class="feedback" id="quizFeedback" role="status"></div>
+      <div class="quiz-nav">
+        <button type="button" class="btn btn-secondary" id="quizPrev" ${quizIndex === 0 ? "disabled" : ""}>← Previous scenario</button>
+        <button type="button" class="btn btn-primary" id="quizNextSc" ${quizIndex === quiz.length - 1 ? "disabled" : ""}>Next scenario →</button>
+      </div>
+    `;
+  }
+
+  function contentFor(id) {
+    switch (id) {
+      case "problem":
+        return `
+          <h2>What problem are we solving?</h2>
+          <p class="lead">Chat-only AI is like a smart friend on the phone: great advice, but they can’t open your fridge, check your calendar, or file your receipts.</p>
+          <div class="cards">
+            <div class="card">
+              <h3><span class="emoji">💬</span> Chat-only AI</h3>
+              <p>Reads what you paste. Writes drafts. Explains ideas. Stops at the edge of the chat window.</p>
+            </div>
+            <div class="card">
+              <h3><span class="emoji">🛠️</span> AI that can use tools</h3>
+              <p>Can reach apps you allow — mail, calendar, files — and follow your usual playbooks for repeat work.</p>
+            </div>
+          </div>
+          <div class="callout">
+            <strong>This week’s idea:</strong> We want assistants (Codex, Cursor, Grok-style tools) that don’t just talk — they help with real work, safely, with your permission.
+          </div>
+          <p>Two ingredients make that possible:</p>
+          <ol>
+            <li><strong>MCP</strong> — how the assistant plugs into your tools</li>
+            <li><strong>Skills</strong> — saved recipes so it doesn’t reinvent your process every time</li>
+          </ol>
+        `;
+
+      case "mcp":
+        return `
+          <h2>MCP in one sentence</h2>
+          <div class="callout">
+            <strong>MCP (Model Context Protocol)</strong> is a standard “remote control” that lets an AI assistant press buttons on apps you connect — instead of only chatting.
+          </div>
+          <div class="metaphor">
+            <div class="metaphor-icon" aria-hidden="true">📺</div>
+            <div>
+              <strong>Metaphor we’ll stick with: the remote control</strong>
+              <p style="margin:6px 0 0;color:var(--muted)">Your TV (Gmail, Calendar, Drive…) sits across the room. The assistant is smart, but without a remote it can only describe what to press. <em>MCP is the remote</em> — one familiar shape of buttons so different TVs (apps) can be controlled the same way.</p>
+            </div>
+          </div>
+          <p>You don’t need to memorize the letters. When someone says “we connected MCP,” hear: <em>“we gave the assistant a remote for that app.”</em></p>
+          <div class="callout warm">
+            <strong>Remember:</strong> The remote only works for apps you’ve plugged in — and big actions (send, delete) still need your OK.
+          </div>
+        `;
+
+      case "connector":
+        return `
+          <h2>What is a connector / server?</h2>
+          <p class="lead">Think of each app as a TV channel. A <strong>connector</strong> (sometimes called an MCP server) is the adapter that teaches the remote the buttons for that one app.</p>
+          <div class="cards">
+            <div class="card">
+              <h3><span class="emoji">✉️</span> Mail connector</h3>
+              <p>Read threads, draft replies, send when you approve.</p>
+            </div>
+            <div class="card">
+              <h3><span class="emoji">📅</span> Calendar connector</h3>
+              <p>See free time, propose meetings, create events you confirm.</p>
+            </div>
+            <div class="card">
+              <h3><span class="emoji">📁</span> Files connector</h3>
+              <p>Find docs in Drive-style storage, open them, help you update.</p>
+            </div>
+          </div>
+          <div class="callout sky">
+            <strong>Plain English:</strong> You don’t “install MCP” for fun — you connect the apps you actually use. Each connector = one more set of buttons on the remote.
+          </div>
+          <p>In class tools (Cursor, Codex, Grok-style assistants), you’ll often see a list of connected services. That’s your remote’s channel list.</p>
+        `;
+
+      case "skill":
+        return `
+          <h2>What is a Skill?</h2>
+          <p class="lead">A <strong>Skill</strong> is a saved recipe — a playbook the assistant follows for a task you do more than once.</p>
+          <div class="metaphor">
+            <div class="metaphor-icon" aria-hidden="true">📋</div>
+            <div>
+              <strong>Recipe, not remote</strong>
+              <p style="margin:6px 0 0;color:var(--muted)">The remote (MCP) can open the fridge. A Skill is the sticky note on the fridge: “Monday status update — use this outline, this tone, these three checks before you’re done.”</p>
+            </div>
+          </div>
+          <div class="cards">
+            <div class="card">
+              <h3>Reusable</h3>
+              <p>Write the steps once; invoke them whenever that kind of work shows up.</p>
+            </div>
+            <div class="card">
+              <h3>Your standards</h3>
+              <p>Captures tone, structure, and “don’t forget” items so quality stays consistent.</p>
+            </div>
+            <div class="card">
+              <h3>Optional friend of MCP</h3>
+              <p>A Skill can use connectors — or work from text you paste. They pair well, but aren’t the same thing.</p>
+            </div>
+          </div>
+          <div class="callout">
+            <strong>One sentence:</strong> A Skill is a reusable how-to the AI follows so you don’t re-explain the same process every time.
+          </div>
+        `;
+
+      case "compare":
+        return renderCompare();
+
+      case "quiz":
+        return renderQuiz();
+
+      case "safe":
+        return `
+          <h2>Safe use: what needs your OK</h2>
+          <p class="lead">Having a remote doesn’t mean the assistant should change channels without asking. Treat powerful actions as “ask first.”</p>
+          <div class="split">
+            <div class="safe-box ok">
+              <h3>✓ Usually fine (read-only)</h3>
+              <ul>
+                <li>Reading a calendar to find free slots</li>
+                <li>Searching files you already can access</li>
+                <li>Drafting an email you haven’t sent</li>
+                <li>Summarizing something you pasted</li>
+              </ul>
+            </div>
+            <div class="safe-box warn">
+              <h3>✋ Needs your OK</h3>
+              <ul>
+                <li>Sending an email or message</li>
+                <li>Deleting or trashing files / mail</li>
+                <li>Sharing a file outside your team</li>
+                <li>Creating calendar invites that notify others</li>
+                <li>Anything irreversible or public</li>
+              </ul>
+            </div>
+          </div>
+          <div class="callout warm" style="margin-top:16px">
+            <strong>Classroom habit:</strong> If you’re unsure, ask the assistant to <em>draft</em> or <em>show a plan</em> first — then approve the send/delete yourself.
+          </div>
+        `;
+
+      case "week":
+        return `
+          <h2>How you might use this this week</h2>
+          <p class="lead">Three classroom-style examples — pick one to try with your assistant.</p>
+
+          <div class="example">
+            <span class="tag mcp">MCP</span>
+            <h3>1. Meeting prep from your calendar</h3>
+            <p style="margin:0;color:var(--muted)">“Look at tomorrow’s meetings and give me a one-page prep sheet: who’s there, likely goals, and three questions to ask.” <em>Needs a calendar connector.</em></p>
+          </div>
+
+          <div class="example">
+            <span class="tag skill">Skill</span>
+            <h3>2. Same status update every time</h3>
+            <p style="margin:0;color:var(--muted)">Save a Skill: “Weekly status = Wins / Blockers / Next week / Ask for help — friendly, short, no jargon.” Reuse it Monday without rewriting the instructions.</p>
+          </div>
+
+          <div class="example">
+            <span class="tag both">Both</span>
+            <h3>3. Client note from real files</h3>
+            <p style="margin:0;color:var(--muted)">“Pull the latest project notes from Drive, then write a client update using our house-style Skill. Show me the draft — don’t send.” Connector + recipe, with your OK before anything leaves.</p>
+          </div>
+
+          <div class="one-liner">
+            <p><strong>Take-home one-liners</strong></p>
+            <p><strong>MCP:</strong> how the AI plugs into your tools (the remote control).</p>
+            <p><strong>Skill:</strong> a reusable how-to / playbook the AI follows.</p>
+          </div>
+          <p style="margin-top:16px;color:var(--muted)">You’re done with the walkthrough — nice work. Flip back any time with the step buttons above.</p>
+        `;
+
+      default:
+        return `<p>Missing section.</p>`;
+    }
+  }
+
+  function bindPanelEvents() {
+    if (steps[current].id === "compare") {
+      panelEl.querySelectorAll(".compare-toggle button").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          compareMode = btn.getAttribute("data-mode");
+          panelEl.innerHTML = contentFor("compare");
+          bindPanelEvents();
+        });
+      });
+    }
+
+    if (steps[current].id === "quiz") {
+      const options = panelEl.querySelector("#quizOptions");
+      const feedback = panelEl.querySelector("#quizFeedback");
+      const q = quiz[quizIndex];
+
+      if (quizAnswered) {
+        // restore visual state if revisiting
+        const buttons = options.querySelectorAll("button");
+        buttons.forEach((b, i) => {
+          b.disabled = true;
+          if (q.options[i].correct) b.classList.add("correct");
+        });
+        feedback.className = "feedback show ok";
+        feedback.innerHTML = `<strong>You got it (or reviewed it).</strong> ${q.why}`;
+      }
+
+      options.querySelectorAll("button").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          if (quizAnswered) return;
+          const idx = Number(btn.getAttribute("data-qi"));
+          const opt = q.options[idx];
+          quizAnswered = true;
+          options.querySelectorAll("button").forEach((b, i) => {
+            b.disabled = true;
+            if (q.options[i].correct) b.classList.add("correct");
+          });
+          if (opt.correct) {
+            btn.classList.add("correct");
+            feedback.className = "feedback show ok";
+            feedback.innerHTML = `<strong>Yes!</strong> ${q.why}`;
+          } else {
+            btn.classList.add("wrong");
+            feedback.className = "feedback show no";
+            feedback.innerHTML = `<strong>Not quite.</strong> ${q.why}`;
+          }
+        });
+      });
+
+      const qp = panelEl.querySelector("#quizPrev");
+      const qn = panelEl.querySelector("#quizNextSc");
+      if (qp) qp.addEventListener("click", () => {
+        if (quizIndex > 0) {
+          quizIndex--;
+          quizAnswered = false;
+          render();
+        }
+      });
+      if (qn) qn.addEventListener("click", () => {
+        if (quizIndex < quiz.length - 1) {
+          quizIndex++;
+          quizAnswered = false;
+          render();
+        }
+      });
+    }
+  }
+
+  function render() {
+    renderStepper();
+    panelEl.innerHTML = contentFor(steps[current].id);
+    panelEl.setAttribute("aria-labelledby", "tab-" + steps[current].id);
+    btnBack.disabled = current === 0;
+    btnNext.disabled = current === steps.length - 1;
+    btnNext.textContent = current === steps.length - 1 ? "Done ✓" : "Next →";
+    bindPanelEvents();
+    // Focus panel heading for screen readers / keyboard flow
+    const h2 = panelEl.querySelector("h2");
+    if (h2) {
+      h2.setAttribute("tabindex", "-1");
+      h2.focus({ preventScroll: true });
+    }
+  }
+
+  btnBack.addEventListener("click", back);
+  btnNext.addEventListener("click", next);
+
+  document.addEventListener("keydown", (e) => {
+    if (e.target && (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA")) return;
+    if (e.key === "ArrowRight") { e.preventDefault(); next(); }
+    if (e.key === "ArrowLeft") { e.preventDefault(); back(); }
+  });
+
+  render();
+})();
+</script>
+</body>
+</html>
